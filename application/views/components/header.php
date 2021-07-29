@@ -17,7 +17,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <span>
 
         <?php
-         echo $title
+         if(strlen($title)>0){
+             echo $title;
+         }
         ?>
         headerr
         </span>

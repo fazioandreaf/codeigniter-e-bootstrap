@@ -1,5 +1,5 @@
 
-    Main Homee
+    Main Home
  <?php 
  foreach($arr as $i){
      echo '<br>';
@@ -8,3 +8,6 @@
      }
  }
  ?>
+ <a href="main/form">
+     Inserimento nuovo  utente
+ </a>
