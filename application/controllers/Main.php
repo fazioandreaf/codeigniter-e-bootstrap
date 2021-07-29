@@ -12,13 +12,13 @@ class Main extends CI_Controller {
 	{
 		$data['arr']=($this->test_model->get_test());
 		//pagenotfound
-		if ( ! file_exists(APPPATH.'views/'.$page.'.php'))
+		if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
         {
 			show_404();
         }
 		$data['title'] = ucfirst($page);
 		$this->load->view('components/header',$data);
-		$this->load->view('home',$data);
+		$this->load->view('pages/home',$data);
 		$this->load->view('components/footer');
 
 	}

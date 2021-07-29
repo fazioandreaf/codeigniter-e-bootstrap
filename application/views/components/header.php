@@ -12,9 +12,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>Document</title>
 </head>
 <body>
-    <header>
+    <div class="container-fluid" style="position:relative">
+    <header >
+        <span>
+
         <?php
          echo $title
         ?>
         headerr
+        </span>
     </header>
