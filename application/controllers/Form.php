@@ -6,8 +6,10 @@ class Form extends CI_Controller {
         $data['title']= "header";
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('title', 'Title', 'required');
-        $this->form_validation->set_rules('text', 'Text', 'required');
+        $this->form_validation->set_rules('title', 'nome', 'required');
+        $this->form_validation->set_rules('title', 'cognome', 'required');
+        $this->form_validation->set_rules('title', 'eta', 'required');
+        $this->form_validation->set_rules('title', 'genere', 'required');
         if ($this->form_validation->run() === FALSE)
         {
             $this->load->view('components/header', $data);
