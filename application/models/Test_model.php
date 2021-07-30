@@ -5,10 +5,18 @@ class Test_model extends CI_Model {
         {
                 $this->load->database();
         }
-        public function get_test()
-        {
-                $query = $this->db->get('test');
-                return $query->result_array();
+        public function get_test($id='')
+        {       
+                if($id==''){
+                        $query = $this->db->get('test');
+                        return $query->result();
+                }else{
+                        $query=$this->db->select('*')
+                                ->from('test')
+                                ->where('id',$id)
+                                ->get();
+                        return $query->result();
+                }
         }
         public function get_corsi(){
                 $query=$this->db->get_where('corsi');
@@ -36,6 +44,7 @@ class Test_model extends CI_Model {
                 $query= $this->db->select('*')
                 ->from('test')
                 ->join('test_corsi','test_corsi.id_test=test.id')
+                ->join('corsi','corsi.id=test_corsi.id_corsi')
                 ->where('test.id',$id)
                 ->get();
                 return $query->result();
