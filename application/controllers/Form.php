@@ -6,10 +6,10 @@ class Form extends CI_Controller {
         $data['title']= "header";
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('title', 'nome', 'required');
-        $this->form_validation->set_rules('title', 'cognome', 'required');
-        $this->form_validation->set_rules('title', 'eta', 'required');
-        $this->form_validation->set_rules('title', 'genere', 'required');
+        $this->form_validation->set_rules('nome', 'Nome', 'required');
+        // $this->form_validation->set_rules('cognome', 'Cognome', 'required');
+        // $this->form_validation->set_rules('eta', 'Eta', 'required');
+        // $this->form_validation->set_rules('genere', 'Genere', 'required');
         if ($this->form_validation->run() === FALSE)
         {
             $this->load->view('components/header', $data);
@@ -24,6 +24,13 @@ class Form extends CI_Controller {
                    
     }
     public function set_user(){
+        $data= array(
+            'name'=> $this->input-> post('name'),
+            'cognome'=> $this->input-> post('cognome'),
+            'eta'=> $this->input-> post('eta'),
+            'genere'=> $this->input-> post('genere'),
+        );
+        $this->db->insert('test',$data);
         $data['title']= "header";
         $this->load->view('components/header',$data);
         $this->load->view('pages/form_succes',);

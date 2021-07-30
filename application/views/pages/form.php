@@ -8,7 +8,7 @@
     <label for="title">Eta</label>
     <input type="number" name="eta">
     <label for="title">Genere</label>
-    <input type="text" name="text"></input>
+    <input type="text" name="genere"></input>
 
     <input type="submit" name="submit" value="Create news item" />
 
