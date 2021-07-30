@@ -16,4 +16,8 @@ class Test_model extends CI_Model {
                 $query = $this->db->get_where('test', array('slug' => $slug));
                 return $query->row_array();
         }
+        public function get_corsi(){
+                $query=$this->db->get_where('corsi');
+                return $query->row_array();
+        }
 }

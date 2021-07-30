@@ -1,9 +1,6 @@
 <div class="container-fluid ">
 <?php echo validation_errors(); ?>
 <?php echo form_open('form/create','class="d-flex flex-column align-items-start"'); ?>
-
-
-
     <label for="title">Nome</label>
     <input type="text" name="nome" />
     <label for="title">Cognome</label>

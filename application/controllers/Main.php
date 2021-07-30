@@ -27,4 +27,15 @@ class Main extends CI_Controller {
 		$this->load->view('pages/form');
 		$this->load->view('components/footer');
 	}
+	public function corsi($page='corsi'){
+		$data['arr']=($this->test_model->get_corsi());
+		if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
+        {
+			show_404();
+        }
+		$data['title'] = 'Precobias';
+		$this->load->view('components/header',$data);
+		$this->load->view('pages/corsi');
+		$this->load->view('components/footer');
+	}
 }
