@@ -1,3 +1,5 @@
+</div>
+</main>
             <footer>
                 Footer
             </footer>
