@@ -6,7 +6,7 @@
    <!-- <div class="pt-4 pb-4">
     filtri
    </div> -->
-   <div class="pt-4 pb-4 container-fluid">
+   <div class="pt-4 pb-4 container-fluid t-cust">
     <div class="row">
         <div class="fw-bold col-4">Nome</div>
         <div class="fw-bold col-4">Cognome</div>
@@ -15,7 +15,7 @@
     </div>
     <?php 
  foreach($arr as $i){
-     echo '<div class="row">';
+     echo '<div class="row pt-1 pb-1">';
      foreach($i as $key=>$value){
          if($key=='nome')
          echo '<div class="col-4">'.$value.'</div>';

@@ -36,6 +36,16 @@ body{
                 }
             }
         }
+        .t-cust{
+            .row{
+                border-bottom: 1px solid gray;
+                
+            }
+            .row:nth-child(2n){
+
+                background-color: #f9f9f9;
+            }
+        }
     }
     footer{
         color: lightgray !important;

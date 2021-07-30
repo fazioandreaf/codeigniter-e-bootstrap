@@ -34,7 +34,6 @@ class Main extends CI_Controller {
 			show_404();
         }
 		$data['title'] = 'Precobias';
-		// var_dump($data['arr']);
 		$this->load->view('components/header',$data);
 		$this->load->view('pages/corsi',$data);
 		$this->load->view('components/footer');
@@ -42,7 +41,7 @@ class Main extends CI_Controller {
 	public function corso_new(){
 		$this->load->helper('form');
         $this->load->library('form_validation');
-		$data['title'] = '';
+		$data['title'] = 'Precobias';
 		$this->load->view('components/header',$data);
 		$this->load->view('pages/corso_new');
 		$this->load->view('components/footer');
