@@ -14,7 +14,7 @@ class Main extends CI_Controller {
         {
 			show_404();
         }
-		$data['title'] = ucfirst($page);
+		$data['title'] = 'Precobias';
 		$this->load->view('components/header',$data);
 		$this->load->view('pages/home',$data);
 		$this->load->view('components/footer');
