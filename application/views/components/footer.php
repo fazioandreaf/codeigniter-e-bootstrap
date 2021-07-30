@@ -1,6 +1,5 @@
-</div>
 </main>
-            <footer>
+            <footer class="fixed-bottom p-3">
                 Footer
             </footer>
         </div>

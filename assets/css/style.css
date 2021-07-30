@@ -7,9 +7,35 @@ body header {
 }
 body header .nav-link {
   color: lightgray !important;
+  transition: all ease-in-out 0.3s;
+}
+body header .nav-link:hover {
+  color: white;
+  font-weight: bolder;
 }
 body main {
   margin-top: 3rem;
+}
+body main form input {
+  transition: all ease-in-out 0.2s;
+}
+body main form input:hover {
+  box-shadow: lightgray 0px 0px 3px 3px;
+}
+body main form input[type=submit] {
+  background-color: black;
+  color: lightgray;
+  border-radius: 0.5rem;
+  border: none;
+  transition: all ease-in-out 0.2s;
+}
+body main form input[type=submit]:hover {
+  color: black;
+  background-color: lightgray;
+}
+body footer {
+  color: lightgray !important;
+  background-color: black;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -25,8 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </span>
             <ul class="nav flex-fill">
                 <li class="nav-link"></li>
-                <li ><a href="#" class="nav-link"> Home</a> </li>
-                <li ><a href="#" class="nav-link"> Inserisci nuovo utente</a> </li>
+                <li ><a href="/" class="nav-link"> Home</a> </li>
+                <li ><a href="/main/form" class="nav-link"> Inserisci nuovo utente</a> </li>
                 <li ><a href="#" class="nav-link"> Lista Utenti</a> </li>
             </ul>
             </span>
@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </header>
     <main>
-        <div class="container-fluid">
+        
 
         
         

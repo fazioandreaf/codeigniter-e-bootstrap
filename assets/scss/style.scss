@@ -7,10 +7,39 @@ body{
 
         .nav-link{
             color: lightgray !important;
+            transition: all ease-in-out 0.3s;
+            &:hover{
+                color: white;
+                font-weight: bolder;
+            }
         }
         background-color: black;
     }
     main{
         margin-top:3rem;
+        form{
+            input{
+                transition: all ease-in-out 0.2s;
+                &:hover{
+                    box-shadow: lightgray 0px 0px 3px 3px;
+                }
+            }
+            input[type='submit']{
+                background-color: black;
+                color: lightgray;
+                border-radius: 0.5rem;
+                border:none;
+                transition: all ease-in-out 0.2s;
+                &:hover{
+                    color:black;
+                    background-color: lightgray;
+                }
+            }
+        }
+    }
+    footer{
+        color: lightgray !important;
+        background-color: black;
+
     }
 }

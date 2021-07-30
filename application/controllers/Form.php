@@ -8,7 +8,7 @@ class Form extends CI_Controller {
 	}    
     
     public function create(){
-        $data['title']= "header";
+        $data['title']= "Precobias";
 
         $this->load->library('form_validation');
         $this->form_validation->set_rules('nome', 'Nome', 'required');
@@ -37,7 +37,7 @@ class Form extends CI_Controller {
             'genere'=> $this->input-> post('genere'),
         );
         $this->db->insert('test',$data);
-        $data['title']= "header";
+        $data['title']= "Precobias";
         $this->load->view('components/header',$data);
         $this->load->view('pages/form_succes',);
         $this->load->view('components/footer',$data);

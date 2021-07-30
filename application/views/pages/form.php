@@ -1,5 +1,8 @@
+<div class="container-fluid ">
 <?php echo validation_errors(); ?>
-<?php echo form_open('form/create'); ?>
+<?php echo form_open('form/create','class="d-flex flex-column align-items-start"'); ?>
+
+
 
     <label for="title">Nome</label>
     <input type="text" name="nome" />
@@ -10,6 +13,7 @@
     <label for="title">Genere</label>
     <input type="text" name="genere"></input>
 
-    <input type="submit" name="submit" value="Create news item" />
+    <input class="mt-2" type="submit" name="submit" value="Create news item" />
 
 </form>
+<div class="container-fluid">
