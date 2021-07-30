@@ -9,14 +9,9 @@ class Test_model extends CI_Model {
         {
                 $query = $this->db->get('test');
                 return $query->result_array();
-                var_dump( $this->db->last_query());
         }
         public function get_corsi(){
-                // $this->create_table('corsi');
                 $query=$this->db->get_where('corsi');
-                // var_dump($query);
-                echo $this->db->last_query();
-
                 return $query->result_array();
         }
         public function create_table($name_table){
@@ -36,5 +31,13 @@ class Test_model extends CI_Model {
                 $this->dbforge->add_field($fields);
                 $this->dbforge->create_table($name_table);
 
+        }
+        public function singolo_ut($id){
+                $query= $this->db->select('*')
+                ->from('test')
+                ->join('test_corsi','test_corsi.id_test=test.id')
+                ->where('test.id',$id)
+                ->get();
+                return $query->result();
         }
 }

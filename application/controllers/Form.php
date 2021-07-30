@@ -11,14 +11,16 @@ class Form extends CI_Controller {
         $data['title']= "Precobias";
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('nome', 'Nome', 'required');
+        $this->form_validation->set_rules('nome', 'Nome', 'required',
+        array('required'=>'Devi inserire il nome'));        
         $this->form_validation->set_rules('cognome', 'Cognome', 'required');
         $this->form_validation->set_rules('eta', 'Eta', 'required');
         $this->form_validation->set_rules('genere', 'Genere', 'required');
         if ($this->form_validation->run() === FALSE)
         {
+            
             $this->load->view('components/header', $data);
-            $this->load->view('pages/form_unsucces');
+            $this->load->view('pages/form');
             $this->load->view('components/footer');
     
         }

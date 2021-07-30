@@ -46,8 +46,11 @@ class Main extends CI_Controller {
 		$this->load->view('pages/corso_new');
 		$this->load->view('components/footer');
 	}
-	public function utente_singolo(){
-		$data['post']=$this->input->post('post',TRUE);
+	public function utente_singolo($get=''){
+
+		$data['get']=$this->test_model->singolo_ut($get);
+		
+		
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header',$data);
 		$this->load->view('pages/utente_singolo');
