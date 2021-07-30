@@ -39,6 +39,15 @@ body main .t-cust .row {
 body main .t-cust .row:nth-child(2n) {
   background-color: #f9f9f9;
 }
+body main .t-cust a {
+  transition: all ease-in-out 0.2s;
+}
+body main .t-cust a:hover {
+  color: red;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+}
 body footer {
   color: lightgray !important;
   background-color: black;

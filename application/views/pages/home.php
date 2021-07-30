@@ -15,10 +15,13 @@
     </div>
     <?php 
  foreach($arr as $i){
-     echo '<div class="row pt-1 pb-1">';
+     echo '<div class="row pt-2 pb-2">';
      foreach($i as $key=>$value){
+
+         if($key=='id')
+         echo '<div class="col-4"><a href="/main/utente_singolo/'.$value.'" class="text-decoration-none"><i class="fas fa-eye"></i></a>';
          if($key=='nome')
-         echo '<div class="col-4">'.$value.'</div>';
+         echo $value.'</div>';
          if($key=='cognome')
          echo '<div class="col-4">'.$value.'</div>';
          if($key=='eta')

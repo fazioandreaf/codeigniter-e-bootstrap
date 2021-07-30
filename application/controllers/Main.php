@@ -46,4 +46,10 @@ class Main extends CI_Controller {
 		$this->load->view('pages/corso_new');
 		$this->load->view('components/footer');
 	}
+	public function utente_singolo(){
+		$data['title'] = 'Precobias';
+		$this->load->view('components/header',$data);
+		$this->load->view('pages/utente_singolo');
+		$this->load->view('components/footer');		
+	}
 }
