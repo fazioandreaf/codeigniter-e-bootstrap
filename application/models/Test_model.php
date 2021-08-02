@@ -5,8 +5,7 @@ class Test_model extends CI_Model {
         {
                 $this->load->database();
         }
-        public function get_test($id='')
-        {       
+        public function get_test($id=''){       
                 if($id==''){
                         $query = $this->db->get('test');
                         return $query->result();

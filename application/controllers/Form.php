@@ -18,8 +18,7 @@ class Form extends CI_Controller {
             $this->form_validation->set_rules('genere', 'Genere', 'required',
         array('required'=>'Devi inserire il genere'));
         if ($this->form_validation->run() === FALSE)
-        {
-            
+        {         
             $this->load->view('components/header', $data);
             $this->load->view('pages/form');
             $this->load->view('components/footer');
@@ -40,9 +39,8 @@ class Form extends CI_Controller {
         );
         $this->db->insert('test',$data);
         $data['title']= "Precobias";
-        $this->load->view('components/header',$data);
-        $this->load->view('pages/form_succes',);
-        $this->load->view('components/footer',$data);
+        redirect('/main/index/');
+
     }
     public function edit($id=''){
         
@@ -64,10 +62,6 @@ class Form extends CI_Controller {
         {
             $item=validation_errors();
             $tmp=$this->session->set_flashdata('item', $item);
-            // $this->session->mark_as_flash(false);
-            // $this->load->view('components/header', $data);
-            // $this->load->view('main/edit/'.$id,$data);
-            // $this->load->view('components/footer');
             redirect('/main/edit/'.$id );
         }
         else
@@ -87,9 +81,7 @@ class Form extends CI_Controller {
             $this->db->where('id',$id)
                     ->update('test',$data);
             $data['title']= "Precobias";
-            $this->load->view('components/header',$data);
-            $this->load->view('pages/form_succes',);
-            $this->load->view('components/footer',$data);
+            redirect('/main/index/');
         }else show_404();
     }
 

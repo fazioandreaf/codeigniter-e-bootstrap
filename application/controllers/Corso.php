@@ -38,4 +38,28 @@ class Corso extends CI_Controller {
         $this->load->view('pages/form_succes',);
         $this->load->view('components/footer',$data);
     }
+    public function add($id=''){
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $data['corso']=$this->test_model->get_corsi($id);
+        $data['table']=$this->test_model->get_test();
+        $tmp=$this->test_model->singolo_corso($id);
+        $data['selected']=[];
+        foreach($tmp as $i){
+            $tmp1=intval($i->id_test);
+            array_push($data['selected'],$tmp1);
+        };
+        
+        $data['title']='precobias';
+        $this->load->view('components/header',$data);
+        $this->load->view('pages/add_corso',$data);
+        $this->load->view('components/footer');
+    }
+    public function add_function(){
+        $data['title']='precobias';
+        $this->load->view('components/header',$data);
+        $this->load->view('pages/home',$data);
+        $this->load->view('components/footer');
+    }
 }

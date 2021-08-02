@@ -16,10 +16,11 @@ body header .nav-link:hover {
 body main {
   margin-top: 3rem;
 }
-body main form input {
+body main form input[type=text], body main form input[type=number], body main form select {
+  width: auto !important;
   transition: all ease-in-out 0.2s;
 }
-body main form input:hover {
+body main form input[type=text]:hover, body main form input[type=number]:hover, body main form select:hover {
   box-shadow: lightgray 0px 0px 3px 3px;
 }
 body main form input[type=submit] {

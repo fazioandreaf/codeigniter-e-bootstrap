@@ -6,8 +6,7 @@ class Main extends CI_Controller {
 		$this->load->model('test_model');
 		$this->load->helper('url_helper');		
 	}
-	public function index($page='home')
-	{
+	public function index($page='home')	{
 		$data['arr']=($this->test_model->get_test());
 		//pagenotfound
 		if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
@@ -57,7 +56,6 @@ class Main extends CI_Controller {
 	}
 	public function corso_singolo($get=''){
 		$data['get']=$this->test_model->singolo_corso($get);
-		// var_dump($data['get']);
 		if(count($data['get'])==0)
 		$data['get']=$this->test_model->get_corsi($get);
 		$data['title'] = 'Precobias';
