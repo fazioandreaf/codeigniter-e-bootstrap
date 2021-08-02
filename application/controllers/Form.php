@@ -45,6 +45,7 @@ class Form extends CI_Controller {
         $this->load->view('components/footer',$data);
     }
     public function edit($id=''){
+        
         $this->load->library('session');
         $data['get']=$id;
         $data['title']= "Precobias";
@@ -62,7 +63,7 @@ class Form extends CI_Controller {
         if ($this->form_validation->run() === FALSE)
         {
             $item=validation_errors();
-            $this->session->set_flashdata('item', $item);
+            $tmp=$this->session->set_flashdata('item', $item);
             // $this->session->mark_as_flash(false);
             // $this->load->view('components/header', $data);
             // $this->load->view('main/edit/'.$id,$data);

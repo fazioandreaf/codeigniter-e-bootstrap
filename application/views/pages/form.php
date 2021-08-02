@@ -12,13 +12,21 @@
     </div>
     <label for="title">Nome</label>    
     <input type="text" name="nome" value="<?php
-    if(!empty($get))
-    echo set_value('nome',$get[0]->nome);
-    else
-    echo set_value('nome'); 
+    if(!empty($_SESSION['item'])){
+        if(!empty($get) && !strpos($_SESSION['item'],'nome') )
+            echo set_value('nome',$get[0]->nome);
+        else
+            echo set_value('nome'); 
+    }else{
+        if(!empty($get) )
+        echo set_value('nome',$get[0]->nome);
+        else
+        echo set_value('nome'); 
+    }
     ?>" >
     <label for="title">Cognome</label>
-    <input type="text" name="cognome"  value="<?php if(!empty($get))
+    <input type="text" name="cognome"  value="<?php 
+    if(!empty($get))
     echo set_value('cognome',$get[0]->cognome);
     else echo set_value('cognome'); ?>">   
     <label for="title">Eta</label>
@@ -39,9 +47,9 @@
     echo '<input class="mt-2" type="submit" name="submit" value="Edit">';
     else
     echo '<input class="mt-2" type="submit" name="submit" value="Create news item">';
-    
+    if(!empty($_SESSION['item']))
     echo $_SESSION['item'];
-    // echo $item;
+
     ?>
 
     <?php echo form_close()?>

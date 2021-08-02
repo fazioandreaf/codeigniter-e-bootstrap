@@ -67,7 +67,7 @@ class Main extends CI_Controller {
 	}
 	public function edit($get=''){
         $this->load->library('session');
-
+		session_destroy();
 		$data['get']=$this->test_model->get_test($get);
 		if(count($data['get'])==0){
 			show_404();
