@@ -60,7 +60,7 @@ class Main extends CI_Controller {
 		$data['get']=$this->test_model->get_corsi($get);
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header',$data);
-		$this->load->view('pages/corso_singolo');
+		$this->load->view('pages/corso_singolo',$data);
 		$this->load->view('components/footer');		
 	}
 	public function edit($get=''){

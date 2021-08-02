@@ -34,9 +34,7 @@ class Corso extends CI_Controller {
         );
         $this->db->insert('corsi',$data);
         $data['title']= "Precobias";
-        $this->load->view('components/header',$data);
-        $this->load->view('pages/form_succes',);
-        $this->load->view('components/footer',$data);
+        redirect('/main/corsi');
     }
     public function add($id=''){
         $this->load->helper('form');
@@ -56,10 +54,26 @@ class Corso extends CI_Controller {
         $this->load->view('pages/add_corso',$data);
         $this->load->view('components/footer');
     }
-    public function add_function(){
-        $data['title']='precobias';
-        $this->load->view('components/header',$data);
-        $this->load->view('pages/home',$data);
-        $this->load->view('components/footer');
+    public function add_function($id=''){
+        // $this->load->library('form_validation');
+        // $this->form_validation->set_rules('id', 'Id', 'required',
+        // array('required'=>"Devi inserire l'id"));        
+        // if ($this->form_validation->run() === FALSE)
+        // {         
+        //     show_404();    
+        // }
+        // else
+        // {
+            $this->set_test_corsi($id);
+            redirect('/main/corso_singolo/'.$id);
+        // }                          
+    }
+    public function set_test_corsi($id=''){
+        $data= array(
+            'id_test'=> $this->input-> post('id_test'),
+            'id_corsi'=> $id,
+        );
+        $this->db->insert('test_corsi',$data);
+         
     }
 }

@@ -5,12 +5,17 @@
     <div class="container-fluid">
             <?php 
                 echo '<h3> Titolo: </h3><span>'.$get[0]->titolo.'</span>';
-                echo '<h3> Descrizione: </h3><p> '.$get[0]->descrizione.'</p>';            
+                echo '<h3> Descrizione: </h3><p> '.$get[0]->descrizione.'</p>';        
+                var_dump($get)    
             ?>
         <div>
             <h2>Utenti iscritti
                 <a href="/corso/add/<?php
-                echo $get[0]->id?>">
+                if(!empty($get[0]->id_corsi))
+                    echo $get[0]->id_corsi;
+                else
+                    echo $get[0]->id;
+                ?>">
                     <i class="fas fa-plus"></i>
                 </a>
                  </h2>

@@ -23,14 +23,14 @@ body main form input[type=text], body main form input[type=number], body main fo
 body main form input[type=text]:hover, body main form input[type=number]:hover, body main form select:hover {
   box-shadow: lightgray 0px 0px 3px 3px;
 }
-body main form input[type=submit] {
+body main form input[type=submit], body main form button[type=submit] {
   background-color: black;
   color: lightgray;
   border-radius: 0.5rem;
   border: none;
   transition: all ease-in-out 0.2s;
 }
-body main form input[type=submit]:hover {
+body main form input[type=submit]:hover, body main form button[type=submit]:hover {
   color: black;
   background-color: lightgray;
 }
