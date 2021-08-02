@@ -2,7 +2,6 @@
     <?php 
     if(!empty($get))
     echo form_open('form/edit/'.$get[0]->id.' ','class="d-flex flex-column align-items-start position-relative"'); 
-
     else
     echo form_open('form/create','class="d-flex flex-column align-items-start position-relative"'); 
     ?>
@@ -19,18 +18,21 @@
     echo set_value('nome'); 
     ?>" >
     <label for="title">Cognome</label>
-    <input type="text" name="cognome"  value="<?php echo set_value('cognome'); ?>">   
+    <input type="text" name="cognome"  value="<?php if(!empty($get))
+    echo set_value('cognome',$get[0]->cognome);
+    else echo set_value('cognome'); ?>">   
     <label for="title">Eta</label>
-    <input type="number" name="eta" value="<?php echo set_value('eta'); ?>">
+    <input type="number" name="eta" value="<?php if(!empty($get))
+    echo set_value('eta',$get[0]->eta);
+    else echo set_value('eta'); ?>">
     <?php 
         $options = array(
             'maschio'=> 'maschio',
             'femmina'=> 'femmina',
             'altro'=> 'altro',
         );
-        $shirts_on_sale = array('small', 'large');
         echo form_label('Genere', 'genere');
-        echo form_dropdown('genere', $options, 'Maschio');
+        echo form_dropdown('genere', $options, $get[0]->genere);
     ?>
     <?php
     if(!empty($get))
