@@ -39,6 +39,9 @@ body main .t-cust .row {
 body main .t-cust .row:nth-child(2n) {
   background-color: #f9f9f9;
 }
+body main .t-cust .row:nth-child(2n) a:hover {
+  background-color: white;
+}
 body main .t-cust a {
   transition: all ease-in-out 0.2s;
 }
@@ -47,6 +50,19 @@ body main .t-cust a:hover {
   padding: 0.5rem;
   border-radius: 50%;
   background-color: #f2f2f2;
+}
+body main .error_form {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 50%;
+  top: 40%;
+  transform: translate(0%, -50%);
+  background-color: lightgray;
+  border-radius: 1rem;
+}
+body main .error_form span {
+  padding: 0.6rem;
 }
 body footer {
   color: lightgray !important;

@@ -18,9 +18,17 @@ class Test_model extends CI_Model {
                         return $query->result();
                 }
         }
-        public function get_corsi(){
-                $query=$this->db->get_where('corsi');
-                return $query->result_array();
+        public function get_corsi($id=''){
+                if($id==''){
+                        $query = $this->db->get('corsi');
+                        return $query->result();
+                }else{
+                        $query=$this->db->select('*')
+                                ->from('corsi')
+                                ->where('id',$id)
+                                ->get();
+                        return $query->result();
+                }
         }
         public function create_table($name_table){
                 $this->load->dbforge();
@@ -46,6 +54,15 @@ class Test_model extends CI_Model {
                 ->join('test_corsi','test_corsi.id_test=test.id')
                 ->join('corsi','corsi.id=test_corsi.id_corsi')
                 ->where('test.id',$id)
+                ->get();
+                return $query->result();
+        }
+        public function singolo_corso($id){
+                $query= $this->db->select('*')
+                ->from('corsi')
+                ->join('test_corsi','test_corsi.id_corsi=corsi.id')
+                ->join('test','test.id=test_corsi.id_test')
+                ->where('corsi.id',$id)
                 ->get();
                 return $query->result();
         }

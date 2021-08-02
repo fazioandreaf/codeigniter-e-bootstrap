@@ -55,4 +55,15 @@ class Main extends CI_Controller {
 		$this->load->view('pages/utente_singolo');
 		$this->load->view('components/footer');		
 	}
+	public function corso_singolo($get=''){
+		$data['get']=$this->test_model->singolo_corso($get);
+		// var_dump($data['get']);
+		if(count($data['get'])==0)
+		$data['get']=$this->test_model->get_corsi($get);
+		$data['title'] = 'Precobias';
+		$this->load->view('components/header',$data);
+		$this->load->view('pages/corso_singolo');
+		$this->load->view('components/footer');		
+	}
+
 }

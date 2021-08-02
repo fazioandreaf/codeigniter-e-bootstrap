@@ -42,8 +42,13 @@ body{
 
             }
             .row:nth-child(2n){
-
                 background-color: #f9f9f9;
+                a{
+                    &:hover{
+                        background-color: white;
+                    }
+
+                }
             }
             a{
                 transition: all ease-in-out 0.2s;
@@ -53,7 +58,19 @@ body{
                   border-radius: 50%;
                   background-color: rgb(242, 242, 242);
               }  
-
+            }
+        }
+        .error_form{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            right: 50%;  
+            top: 40%;
+            transform: translate(0%,-50%);        
+            background-color: lightgray;
+            border-radius: 1rem;
+            span{
+                padding: 0.6rem;
             }
         }
     }
