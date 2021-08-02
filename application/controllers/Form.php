@@ -45,24 +45,29 @@ class Form extends CI_Controller {
         $this->load->view('components/footer',$data);
     }
     public function edit($id=''){
+        $this->load->library('session');
         $data['get']=$id;
         $data['title']= "Precobias";
+
+
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('nome', 'Nome', 'required',
-        array('required'=>'Devi inserire il nome'));        
-        $this->form_validation->set_rules('cognome', 'Cognome', 'required',
-        array('required'=>'Devi inserire il cognome'));
-            $this->form_validation->set_rules('eta', 'Eta', 'required',
-        array('required'=>"Devi inserire l'etá"));
-            $this->form_validation->set_rules('genere', 'Genere', 'required',
-        array('required'=>'Devi inserire il genere'));
+        $this->form_validation->set_rules('nome', 'Nome', 'required',array('required'=>'Devi inserire il nome')); 
+
+        $this->form_validation->set_rules('cognome', 'Cognome', 'required',array('required'=>'Devi inserire il cognome'));
+
+        $this->form_validation->set_rules('eta', 'Eta', 'required',array('required'=>"Devi inserire l'etá"));
+
+        $this->form_validation->set_rules('genere', 'Genere', 'required',array('required'=>'Devi inserire il genere'));
+
         if ($this->form_validation->run() === FALSE)
         {
-            
-            $this->load->view('components/header', $data);
-            $this->load->view('main/edit/'.$id,$data);
-            $this->load->view('components/footer');
-    
+            $item=validation_errors();
+            $this->session->set_flashdata('item', $item);
+            // $this->session->mark_as_flash(false);
+            // $this->load->view('components/header', $data);
+            // $this->load->view('main/edit/'.$id,$data);
+            // $this->load->view('components/footer');
+            redirect('/main/edit/'.$id );
         }
         else
         {

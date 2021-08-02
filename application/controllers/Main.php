@@ -66,6 +66,8 @@ class Main extends CI_Controller {
 		$this->load->view('components/footer');		
 	}
 	public function edit($get=''){
+        $this->load->library('session');
+
 		$data['get']=$this->test_model->get_test($get);
 		if(count($data['get'])==0){
 			show_404();

@@ -38,7 +38,10 @@
     if(!empty($get))
     echo '<input class="mt-2" type="submit" name="submit" value="Edit">';
     else
-    echo '<input class="mt-2" type="submit" name="submit" value="Create news item">';     
+    echo '<input class="mt-2" type="submit" name="submit" value="Create news item">';
+    
+    echo $_SESSION['item'];
+    // echo $item;
     ?>
 
     <?php echo form_close()?>
