@@ -65,5 +65,20 @@ class Main extends CI_Controller {
 		$this->load->view('pages/corso_singolo');
 		$this->load->view('components/footer');		
 	}
+	public function edit($get=''){
+		$data['get']=$this->test_model->get_test($get);
+		if(count($data['get'])==0){
+			show_404();
+		}else{
+			$this->load->helper('form');
+			$this->load->library('form_validation');	
+			$data['title'] = 'Precobias';
+			$this->load->view('components/header',$data);
+			$this->load->view('pages/form',$data);
+			$this->load->view('components/footer');	
+		}
+
+
+	}
 
 }
