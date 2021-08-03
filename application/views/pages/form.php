@@ -1,16 +1,26 @@
-<div class="container ">
+<div class="container position-relative">
+    <!-- <div class="error_form">
+        <?php
+        if(!empty($_SESSION['item']))
+            echo '<span>'.$_SESSION['item'].'</span>';    
+        else
+            echo validation_errors('<span>', '</span>'); ?>
+    </div> -->
+
     <?php 
     if(!empty($get))
-    echo form_open('form/edit/'.$get[0]->id.' ','class="d-flex flex-column align-items-start position-relative"'); 
+    echo form_open('form/edit/'.$get[0]->id.' ','class="d-flex flex-column align-items-center justify-content-evenly " style="height:400px"'); 
     else
-    echo form_open('form/create','class="d-flex flex-column align-items-center justify-content-evenly position-relative" style="height:400px"'); 
+    echo form_open('form/create','class="d-flex flex-column align-items-center justify-content-evenly " style="height:400px"'); 
     ?>
-    <div class="error_form">
-        <?php echo validation_errors('<span>', '</span>'); ?>
-    </div>
-    <div>
-    </div>
-    <div class="form-floating">   
+    <div class="form-floating position-relative">   
+        <div class="error_form">
+            <?php
+            if(!empty($_SESSION['item']))
+                echo '<span>'.$_SESSION['item'].'</span>';    
+            else
+                echo validation_errors('<span>', '</span>'); ?>
+        </div>
         <input type="text" class="form-control" name="nome" value="<?php
             if(!empty($_SESSION['item'])){
                 if(!empty($get) && !strpos($_SESSION['item'],' nome') )
@@ -69,7 +79,7 @@
             'Altro'=> 'Altro',
         );
         if(!empty($get))
-            echo form_dropdown('genere', $options, $get[0]->genere);
+            echo form_dropdown('genere', $options, $get[0]->genere,'class="form-select"');
         else
             echo form_dropdown('genere', $options,'','class="form-select"');
 
@@ -81,9 +91,6 @@
         echo '<input class="mt-4 p-2" type="submit" name="submit" value="Edit">';
     else
         echo '<input class="mt-4 p-2" type="submit" name="submit" value="Crea un nuovo utente">';
-    if(!empty($_SESSION['item']))
-    echo $_SESSION['item'];
-
     ?>
 
     <?php echo form_close()?>

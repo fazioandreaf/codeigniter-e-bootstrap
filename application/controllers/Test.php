@@ -19,7 +19,7 @@ class Test extends CI_Controller {
             array_push($data['selected'],$tmp1);
         };
         
-        $data['title']='precobias';
+        $data['title']='Precobias';
         $this->load->view('components/header',$data);
         $this->load->view('pages/add_corso_on_test',$data);
         $this->load->view('components/footer');

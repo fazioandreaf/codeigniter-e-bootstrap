@@ -28,6 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li class="nav-link"></li>
                 <li ><a href="/" class="nav-link"> Home</a> </li>
                 <li ><a href="/main/form" class="nav-link"> Inserisci nuovo utente</a> </li>
+                <li ><a href="/main/corso_new" class="nav-link"> Inserisci nuovo corso</a> </li>
                 <li ><a href="/main/corsi" class="nav-link"> Vedi i corsi</a> </li>
             </ul>
             </span>

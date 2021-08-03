@@ -17,7 +17,7 @@ class Job extends CI_Controller {
         $this->load->view('components/footer');
     }
     public function add_function($id=''){
-        $data[ 'title']="precobias";
+        $data[ 'title']="Precobias";
         $this->load->library('form_validation');
         $this->form_validation->set_rules('job_title', 'Titolo', 'required',
         array('required'=>"Devi inserire il nome dell'esperienza lavorativa"));      
@@ -44,7 +44,7 @@ class Job extends CI_Controller {
         $this->db->insert('job',$data);
         redirect('/main/utente_singolo/'.$id);
     }
-    public function delete($id="",$id_test){
+    public function delete($id="",$id_test=""){
         
         $this->db->where('id', $id);
         $this->db->delete('job');

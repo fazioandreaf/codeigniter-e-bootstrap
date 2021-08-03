@@ -49,7 +49,7 @@ class Corso extends CI_Controller {
             array_push($data['selected'],$tmp1);
         };
         
-        $data['title']='precobias';
+        $data['title']='Precobias';
         $this->load->view('components/header',$data);
         $this->load->view('pages/add_test_on_corso',$data);
         $this->load->view('components/footer');
@@ -103,7 +103,7 @@ class Corso extends CI_Controller {
             array_push($data['selected'],$tmp1);
         };
         
-        $data['title']='precobias';
+        $data['title']='Precobias';
         $this->load->view('components/header',$data);
         $this->load->view('pages/add_corso_on_test',$data);
         $this->load->view('components/footer');
