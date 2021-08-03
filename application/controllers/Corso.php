@@ -74,7 +74,16 @@ class Corso extends CI_Controller {
                     'id_corsi'=> $id,
                 );
                 $this->db->insert('test_corsi',$data);
+            }else{
+
+                foreach($id_on_foreign_table as $j){
+                    if(!in_array($j,$id_test)){
+                        $this->db->where('id_test', $j);
+                        $this->db->delete('test_corsi');
+                    }
+                }
             }
+        
         }         
     }
 }
