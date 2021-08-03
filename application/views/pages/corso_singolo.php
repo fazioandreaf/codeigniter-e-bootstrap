@@ -6,7 +6,6 @@
             <?php 
                 echo '<h3> Titolo: </h3><span>'.$get[0]->titolo.'</span>';
                 echo '<h3> Descrizione: </h3><p> '.$get[0]->descrizione.'</p>';        
-                var_dump($get)    
             ?>
         <div>
             <h2>Utenti iscritti

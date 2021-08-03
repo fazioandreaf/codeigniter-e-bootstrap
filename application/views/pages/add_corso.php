@@ -13,7 +13,7 @@
     foreach($table as $i){
         echo '<div class="d-flex justify-content-between align-left align-items-center">';
         $id=$i->id;
-        echo '<input type="checkbox" class="form-check-input"  name="id_test" value="'.$id.'" id="'.$id.'" class="me-3"';
+        echo '<input type="checkbox" class="form-check-input"  name="id_test[]" value="'.$id.'" id="'.$id.'" class="me-3"';
         if(in_array($id,$selected))
             echo 'checked>';
         else 

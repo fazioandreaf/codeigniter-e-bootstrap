@@ -55,25 +55,26 @@ class Corso extends CI_Controller {
         $this->load->view('components/footer');
     }
     public function add_function($id=''){
-        // $this->load->library('form_validation');
-        // $this->form_validation->set_rules('id', 'Id', 'required',
-        // array('required'=>"Devi inserire l'id"));        
-        // if ($this->form_validation->run() === FALSE)
-        // {         
-        //     show_404();    
-        // }
-        // else
-        // {
             $this->set_test_corsi($id);
             redirect('/main/corso_singolo/'.$id);
-        // }                          
     }
     public function set_test_corsi($id=''){
-        $data= array(
-            'id_test'=> $this->input-> post('id_test'),
-            'id_corsi'=> $id,
-        );
-        $this->db->insert('test_corsi',$data);
-         
+        $get=$this->test_model->singolo_corso($id);
+        if(count($get)==0)
+        $get=$this->test_model->get_corsi($id);
+        $id_on_foreign_table=[];
+        foreach($get as $i)
+        array_push($id_on_foreign_table,$i->id_test);
+        $id_test=$this->input->post('id_test');
+        
+        foreach($id_test as $i){
+            if(!in_array($i,$id_on_foreign_table)){
+                $data= array(
+                    'id_test'=> $i,
+                    'id_corsi'=> $id,
+                );
+                $this->db->insert('test_corsi',$data);
+            }
+        }         
     }
 }
