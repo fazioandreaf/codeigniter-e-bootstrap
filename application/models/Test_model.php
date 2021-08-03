@@ -73,6 +73,16 @@ class Test_model extends CI_Model {
                 ->get();
                 return $query->result();
         }
+        public function singolo_test($id){
+                $query= $this->db->select('*')
+                ->from('test')
+                ->join('test_corsi','test_corsi.id_test=test.id')
+                ->join('corsi','corsi.id=test_corsi.id_corsi')
+                ->where('test.id',$id)
+                ->get();
+                return $query->result();
+        }
+
 
         
 }

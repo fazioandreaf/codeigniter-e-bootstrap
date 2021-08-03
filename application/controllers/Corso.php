@@ -51,7 +51,7 @@ class Corso extends CI_Controller {
         
         $data['title']='precobias';
         $this->load->view('components/header',$data);
-        $this->load->view('pages/add_corso',$data);
+        $this->load->view('pages/add_test_on_corso',$data);
         $this->load->view('components/footer');
     }
     public function add_function($id=''){
@@ -89,5 +89,25 @@ class Corso extends CI_Controller {
             }
         
         }         
+    }
+    public function test_on_corso($id=""){
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $data['corso']=$this->test_model->get_corsi();
+        $data['table']=$this->test_model->get_test($id);
+        $tmp=$this->test_model->singolo_test($id);
+        $data['selected']=[];
+        foreach($tmp as $i){
+            $tmp1=intval($i->id_test);
+            array_push($data['selected'],$tmp1);
+        };
+        
+        $data['title']='precobias';
+        $this->load->view('components/header',$data);
+        $this->load->view('pages/add_corso_on_test',$data);
+        $this->load->view('components/footer');
+
+
     }
 }

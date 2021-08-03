@@ -14,7 +14,18 @@
             ?>
         </ul>
         <div>
-            <h2>Corsi iscritti</h2>
+            <h2>Corsi iscritti
+            <a href="/corso/test_on_corso/<?php
+                if(!empty($get[0]->id_test))
+                    echo $get[0]->id_test;
+                else
+                    echo $get[0]->id;
+                ?>">
+                    <i class="fas fa-plus"></i>
+                </a>    
+
+            </h2>
+
             <ul>
                 <?php 
                 if(!empty($get[0]->titolo)){
@@ -25,7 +36,16 @@
                 }
                 ?>
             </ul>
-            <h2>Esperienze lavorative</h2>
+            <h2>Esperienze lavorative
+            <a href="/corso/add/<?php
+                if(!empty($get_exp[0]->id_test))
+                    echo $get_exp[0]->id_test;
+                else
+                    echo $get_exp[0]->id;
+                ?>">
+                    <i class="fas fa-plus"></i>
+                </a>
+            </h2>
             <ul>
                 <?php 
                 if(!empty($get_exp[0]->job_title)){

@@ -3,7 +3,7 @@
     if(!empty($get))
     echo form_open('form/edit/'.$get[0]->id.' ','class="d-flex flex-column align-items-start position-relative"'); 
     else
-    echo form_open('form/create','class="d-flex flex-column align-items-start position-relative"'); 
+    echo form_open('form/create','class="d-flex flex-column align-items-center position-relative"'); 
     ?>
     <div class="error_form">
         <?php echo validation_errors('<span>', '</span>'); ?>
@@ -54,9 +54,9 @@
     ?>">
     <?php 
         $options = array(
-            'maschio'=> 'maschio',
-            'femmina'=> 'femmina',
-            'altro'=> 'altro',
+            'Maschio'=> 'Maschio',
+            'Femmina'=> 'Femmina',
+            'Altro'=> 'Altro',
         );
         echo form_label('Genere', 'genere');
         if(!empty($get))
@@ -69,7 +69,7 @@
     if(!empty($get))
         echo '<input class="mt-4 p-2" type="submit" name="submit" value="Edit">';
     else
-        echo '<input class="mt-4 p-2" type="submit" name="submit" value="Create news item">';
+        echo '<input class="mt-4 p-2" type="submit" name="submit" value="Crea un nuovo utente">';
     if(!empty($_SESSION['item']))
     echo $_SESSION['item'];
 
