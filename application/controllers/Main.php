@@ -57,10 +57,11 @@ class Main extends CI_Controller {
 	public function utente_singolo($get=''){
 		$data['get']=$this->test_model->singolo_ut($get);
 		if(count($data['get'])==0)
-		$data['get']=$this->test_model->get_test($get);
-		$data['get_exp']=$this->test_model->singolo_ut($get);
+			$data['get']=$this->test_model->get_test($get);
+		
+		$data['get_exp']=$this->test_model->singolo_ut_exp($get);
 		if(count($data['get_exp'])==0)
-		$data['get_exp']=$this->test_model->get_test($get);		
+			$data['get_exp']=$this->test_model->get_test($get);		
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header',$data);
 		$this->load->view('pages/utente_singolo');

@@ -15,7 +15,7 @@
         </ul>
         <div>
             <h2>Corsi iscritti
-            <a href="/corso/test_on_corso/<?php
+            <a href="/test/test_on_corso/<?php
                 if(!empty($get[0]->id_test))
                     echo $get[0]->id_test;
                 else
@@ -37,7 +37,7 @@
                 ?>
             </ul>
             <h2>Esperienze lavorative
-            <a href="/corso/add/<?php
+            <a href="/job/add/<?php
                 if(!empty($get_exp[0]->id_test))
                     echo $get_exp[0]->id_test;
                 else
@@ -52,7 +52,7 @@
                     foreach($get_exp as $i)
                         echo '<li>'.($i->job_title).'</li>';
                 }else{
-                    echo '<li> Non hai ancora nessuna esperienza lavorativa corso attivo</li>';
+                    echo '<li> Non hai ancora nessuna esperienza lavorativa</li>';
                 }
                 ?>
             </ul>

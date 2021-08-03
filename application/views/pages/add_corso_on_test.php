@@ -14,7 +14,7 @@
             <?php echo validation_errors('<span>', '</span>'); ?>
         </div>
         <?php 
-        echo form_open('/corso/add_corsi_on_test/'.$table[0]->id,'class="container"'); 
+        echo form_open('/test/add_corsi_on_test/'.$table[0]->id,'class="container"'); 
         
         foreach($corso as $i){
             $id=$i->id;

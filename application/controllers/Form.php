@@ -10,13 +10,13 @@ class Form extends CI_Controller {
         $data['title']= "Precobias";
         $this->load->library('form_validation');
         $this->form_validation->set_rules('nome', 'Nome', 'required',
-        array('required'=>'Devi inserire il nome'));        
+            array('required'=>'Devi inserire il nome'));        
         $this->form_validation->set_rules('cognome', 'Cognome', 'required',
-        array('required'=>'Devi inserire il cognome'));
-            $this->form_validation->set_rules('eta', 'Eta', 'required',
-        array('required'=>"Devi inserire l'etá"));
-            $this->form_validation->set_rules('genere', 'Genere', 'required',
-        array('required'=>'Devi inserire il genere'));
+            array('required'=>'Devi inserire il cognome'));
+        $this->form_validation->set_rules('eta', 'Eta', 'required',
+            array('required'=>"Devi inserire l'etá"));
+        $this->form_validation->set_rules('genere', 'Genere', 'required',
+            array('required'=>'Devi inserire il genere'));
         if ($this->form_validation->run() === FALSE)
         {         
             $this->load->view('components/header', $data);
