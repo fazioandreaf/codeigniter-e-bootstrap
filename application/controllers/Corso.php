@@ -66,7 +66,11 @@ class Corso extends CI_Controller {
         foreach($get as $i)
         array_push($id_on_foreign_table,$i->id_test);
         $id_test=$this->input->post('id_test');
-        
+        if(empty($id_test)){
+            $this->db->where('id_corsi', $id);
+            $this->db->delete('test_corsi');
+            return;
+        }
         foreach($id_test as $i){
             if(!in_array($i,$id_on_foreign_table)){
                 $data= array(
