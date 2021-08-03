@@ -1,4 +1,4 @@
-<div class="container-fluid ">
+<div class="container ">
     <?php 
     if(!empty($get))
     echo form_open('form/edit/'.$get[0]->id.' ','class="d-flex flex-column align-items-start position-relative"'); 

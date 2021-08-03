@@ -19,7 +19,7 @@ body{
         margin-top:3rem;
         form{
             input[type="text"],input[type="number"], select {
-                width: auto !important;
+                width: 100%;
                 transition: all ease-in-out 0.2s;
                 &:hover{
                     box-shadow: lightgray 0px 0px 3px 3px;

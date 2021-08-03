@@ -5,13 +5,20 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('job/add_function/'.$test[0]->id,'class="container d-flex flex-column justify-content-evenly align-items-center" style="height:400px"'); ?>
+<?php echo form_open('job/add_function/'.$test[0]->id,'class="container d-flex flex-column justify-content-evenly align-items-stretch" style="height:400px"'); ?>
 
-    <label for="title">Titolo dell'esperienza lavorativa</label>
-    <input type="text" name="job_title" />
+    <div class="form-floating">   
+        <input type="text" class="form-control" placeholder="Titolo" name="job_title" />
+        <label for="job_title" class="floatingTextarea2">Titolo dell'esperienza lavorativa</label>
+    </div>
+    <div class="form-floating">
 
-    <label for="text">Descrizione</label>
-    <input type='text' style="width:400px !important;height:200px" name="job_description" />
+        <textarea type='text' minlength="50" 
+        
+        class="form-control" placeholder="Description"
+        style="height:200px" name="job_description"></textarea>
+        <label for="job_description">Descrizione</label>
+    </div>
 
     <input type="submit" name="submit" value="Create news item" />
 

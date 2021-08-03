@@ -17,7 +17,7 @@ body main {
   margin-top: 3rem;
 }
 body main form input[type=text], body main form input[type=number], body main form select {
-  width: auto !important;
+  width: 100%;
   transition: all ease-in-out 0.2s;
 }
 body main form input[type=text]:hover, body main form input[type=number]:hover, body main form select:hover {
