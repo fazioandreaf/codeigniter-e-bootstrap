@@ -16,6 +16,10 @@ body{
         background-color: black;
     }
     main{
+        a{
+            color: white;
+            text-decoration: none;
+        }
         margin-top:3rem;
         form{
             input[type="text"],input[type="number"], select {

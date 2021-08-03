@@ -10,34 +10,39 @@
     </div>
     <div>
     </div>
-    <label for="title">Nome</label>    
-    <input type="text" class="form-control" name="nome" value="<?php
-    if(!empty($_SESSION['item'])){
-        if(!empty($get) && !strpos($_SESSION['item'],' nome') )
-            echo set_value('nome',$get[0]->nome);
-        else
-            echo set_value('nome'); 
-    }else{
-        if(!empty($get) )
-        echo set_value('nome',$get[0]->nome);
-        else
-        echo set_value('nome'); 
-    }
-    ?>" >
-    <label for="title">Cognome</label>
-    <input type="text" class="form-control" name="cognome"  value="<?php 
-    if(!empty($_SESSION['item'])){
-        if(!empty($get) && !strpos($_SESSION['item'],' cognome') )
-            echo set_value('nome',$get[0]->cognome);
-        else
-            echo set_value('nome'); 
-    }else{
-        if(!empty($get) )
-        echo set_value('nome',$get[0]->cognome);
-        else
-        echo set_value('nome'); 
-    }
-    ?>">   
+    <div class="form-floating">   
+        <input type="text" class="form-control" name="nome" value="<?php
+            if(!empty($_SESSION['item'])){
+                if(!empty($get) && !strpos($_SESSION['item'],' nome') )
+                    echo set_value('nome',$get[0]->nome);
+                else
+                    echo set_value('nome'); 
+            }else{
+                if(!empty($get) )
+                echo set_value('nome',$get[0]->nome);
+                else
+                echo set_value('nome'); 
+            }
+        ?>" >
+        <label for="nome" class="floatingTextarea2">Nome</label>    
+    </div>
+    <div class="form-floating">
+
+        <input type="text" class="form-control" name="cognome"  value="<?php 
+            if(!empty($_SESSION['item'])){
+                if(!empty($get) && !strpos($_SESSION['item'],' cognome') )
+                    echo set_value('nome',$get[0]->cognome);
+                else
+                    echo set_value('nome'); 
+            }else{
+                if(!empty($get) )
+                echo set_value('nome',$get[0]->cognome);
+                else
+                echo set_value('nome'); 
+            }
+        ?>">   
+        <label for="cognome" class="form-floating">Cognome</label>
+    </div>
     <label for="title">Eta</label>
     <input type="number" min="0" class="form-control" name="eta" value="<?php 
     if(!empty($_SESSION['item'])){

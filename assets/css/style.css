@@ -16,6 +16,10 @@ body header .nav-link:hover {
 body main {
   margin-top: 3rem;
 }
+body main a {
+  color: white;
+  text-decoration: none;
+}
 body main form input[type=text], body main form input[type=number], body main form select {
   width: 100%;
   transition: all ease-in-out 0.2s;
