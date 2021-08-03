@@ -14,23 +14,23 @@
             <?php echo validation_errors('<span>', '</span>'); ?>
         </div>
         <?php 
-        echo form_open('/corso/add_function/'.$corso[0]->id); 
-        foreach($table as $i){
-            echo '<div class="d-flex justify-content-between align-left align-items-center">';
+        echo form_open('/corso/add_corsi_on_test/'.$table[0]->id,'class="container"'); 
+        
+        foreach($corso as $i){
             $id=$i->id;
-            echo '<input type="checkbox" class="form-check-input"  name="id_test[]" value="'.$id.'" id="'.$id.'" class="me-3"';
+            echo '<div class="d-flex justify-content-between align-left align-items-center mt-2">';
+            echo '<input type="checkbox" class="form-check-input me-3"  name="id_corsi[]" value="'.$id.'"  ';
             if(in_array($id,$selected))
                 echo 'checked>';
             else 
                 echo '>';
-            foreach($i as $k=>$v){
-                echo '<span style="flex:1">'.$v.'</span>';
+                echo '<span class="col-3" >'.$i->titolo.'</span>';
+                echo '<span style="flex:1">'.$i->descrizione.'</span>';
                 // var_dump($v);
-            }
             echo '</div>';      
         }
         ?>
-        <button type="submit" class="mt-3 mb-3" >Aggiungi corsisti</button>
+        <button type="submit" class="mt-3 mb-3" >Iscriviti ai corsi</button>
         <?php echo form_close()?>
     
         </div>
