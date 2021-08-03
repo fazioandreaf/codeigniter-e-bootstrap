@@ -65,4 +65,14 @@ class Test_model extends CI_Model {
                 ->get();
                 return $query->result();
         }
+        public function singolo_ut_exp($id){
+                $query= $this->db->select('*')
+                ->from('test')
+                ->join('job','job.id_test=test.id')
+                ->where('test.id',$id)
+                ->get();
+                return $query->result();
+        }
+
+        
 }
