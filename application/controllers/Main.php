@@ -4,15 +4,24 @@ class Main extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('test_model');
-		$this->load->helper('url_helper');		
+		$this->load->helper('url_helper');	
+		$this->load->library('javascript');	
+		$this->load->library('javascript/jquery');	
 	}
-	public function index($page='home')	{
+	public function index($page='home'){
+		$this->load->library('javascript');	
+		$this->load->library('javascript/jquery');	
+
+		$this->javascript;
+		$this->jquery;
+		
 		$data['arr']=($this->test_model->get_test());
 		//pagenotfound
 		if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
         {
 			show_404();
         }
+		// $this->jquery->click('#delete', code_to_run());
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header',$data);
 		$this->load->view('pages/home',$data);

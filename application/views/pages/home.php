@@ -29,7 +29,11 @@
          echo '<div class="col">'.$value.'</div>';
          if($key=='genere'){
              echo '<div class="col d-flex justify-content-between"><span>'.$value.'</span>';
-             echo '<span class=""><a href="/main/edit/'.$id.'"><i class="fas fa-edit"></i></a></span></div>';
+             echo '
+             <span >
+             <a href="#" id="delete" class="pe-3"><i class="fas fa-user-minus"></i></a>
+             <a href="/main/edit/'.$id.'"><i class="fas fa-edit"></i></a></span></div>
+             ';
 
          }
         }       

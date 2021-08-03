@@ -54,7 +54,9 @@ class Form extends CI_Controller {
 
         $this->form_validation->set_rules('cognome', 'Cognome', 'required',array('required'=>'Devi inserire il cognome'));
 
-        $this->form_validation->set_rules('eta', 'Eta', 'required',array('required'=>"Devi inserire l'etá"));
+        $this->form_validation->set_rules('eta', 'Eta', 'required|greater_than[0]',array('required'=>"Devi inserire l'etá",
+        'greater_than'=>"Devi inserire un'etá maggiore di 0"
+    ));
 
         $this->form_validation->set_rules('genere', 'Genere', 'required',array('required'=>'Devi inserire il genere'));
 

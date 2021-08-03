@@ -39,7 +39,7 @@
     }
     ?>">   
     <label for="title">Eta</label>
-    <input type="number" class="form-control" name="eta" value="<?php 
+    <input type="number" min="0" class="form-control" name="eta" value="<?php 
     if(!empty($_SESSION['item'])){
         if(!empty($get) && !strpos($_SESSION['item'],' et') )
             echo set_value('nome',$get[0]->eta);
