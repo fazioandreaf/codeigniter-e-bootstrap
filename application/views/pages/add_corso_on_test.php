@@ -6,7 +6,9 @@
         </h1>
     <h2> Elenco Corsi</h2>
         <a href="/main/corso_new" class="mt-3 mb-3 d-inline-block">
-         Inserimento nuovo corso
+            <button type="button" class="btn btn-primary">
+                Inserimento nuovo corso
+            </button>
         </a>
     <div class="container-md">
         <div class="d-flex flex-column">

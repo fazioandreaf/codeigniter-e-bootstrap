@@ -16,8 +16,12 @@ body{
         background-color: black;
     }
     main{
+        textarea{
+            resize:none;
+        }
         a{
-            color: white;
+            color: #0D6EFD;
+
             text-decoration: none;
         }
         margin-top:3rem;
@@ -58,7 +62,7 @@ body{
             a{
                 transition: all ease-in-out 0.2s;
               &:hover{
-                  color: red;
+                  color: darkgreen;
                   padding: 0.5rem;
                   border-radius: 50%;
                   background-color: rgb(242, 242, 242);
@@ -76,6 +80,16 @@ body{
             border-radius: 1rem;
             span{
                 padding: 0.6rem;
+            }
+        }
+        .utenti_iscritti{
+            a{
+                color:#0D6EFD ;
+                transition: all ease-in-out 0.2s;
+                &:hover{
+                    font-weight: bolder;
+                    // color: darkgreen;
+                }
             }
         }
     }

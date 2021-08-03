@@ -48,8 +48,6 @@
             </h2>
             <ul>
                 <?php 
-                // var_dump($get_exp[0]);
-                // die();
                 if(!empty($get_exp[0]->job_title)){
                     foreach($get_exp as $i)
                         echo '<li><a href="/job/delete/'.$i->id.'/'.$i->id_test.'" class="me-2">  <i class="fas fa-trash"></i></a>'.($i->job_title).'</li>';

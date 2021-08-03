@@ -6,7 +6,9 @@
         </h1>
     <h2> Elenco corsisti nel database</h2>
         <a href="/main/form" class="mt-3 mb-3 d-inline-block">
-         Inserimento nuovo  utente
+            <button type="button" class="btn btn-primary">
+                Inserimento nuovo  utente
+            </button>
         </a>
     <div class="container-md">
         <div class="d-flex flex-column">

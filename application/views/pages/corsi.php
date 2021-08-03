@@ -1,7 +1,9 @@
 <div class="container-fluid">
    <h1 class="border-bottom border-dark pt-4 pb-4"  >Corsi</h1>
    <a href="/main/corso_new">
-     Inserimento nuovo  corso
+        <button type="button" class="btn btn-primary">
+            Inserimento nuovo  corso
+        </button>
     </a>
    <!-- <div class="pt-4 pb-4">
     filtri

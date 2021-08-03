@@ -16,8 +16,11 @@ body header .nav-link:hover {
 body main {
   margin-top: 3rem;
 }
+body main textarea {
+  resize: none;
+}
 body main a {
-  color: white;
+  color: #0D6EFD;
   text-decoration: none;
 }
 body main form input[type=text], body main form input[type=number], body main form select {
@@ -51,7 +54,7 @@ body main .t-cust a {
   transition: all ease-in-out 0.2s;
 }
 body main .t-cust a:hover {
-  color: red;
+  color: darkgreen;
   padding: 0.5rem;
   border-radius: 50%;
   background-color: #f2f2f2;
@@ -68,6 +71,13 @@ body main .error_form {
 }
 body main .error_form span {
   padding: 0.6rem;
+}
+body main .utenti_iscritti a {
+  color: #0D6EFD;
+  transition: all ease-in-out 0.2s;
+}
+body main .utenti_iscritti a:hover {
+  font-weight: bolder;
 }
 body footer {
   color: lightgray !important;

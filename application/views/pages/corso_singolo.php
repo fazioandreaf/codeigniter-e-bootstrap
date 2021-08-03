@@ -7,7 +7,7 @@
                 echo '<h3> Titolo: </h3><span>'.$get[0]->titolo.'</span>';
                 echo '<h3> Descrizione: </h3><p> '.$get[0]->descrizione.'</p>';        
             ?>
-        <div>
+        <div class="utenti_iscritti" >
             <h2>Utenti iscritti
                 <a href="/corso/add/<?php
                 if(!empty($get[0]->id_corsi))
