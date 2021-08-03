@@ -16,12 +16,10 @@ class Main extends CI_Controller {
 		$this->jquery;
 		
 		$data['arr']=($this->test_model->get_test());
-		//pagenotfound
 		if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
         {
 			show_404();
         }
-		// $this->jquery->click('#delete', code_to_run());
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header',$data);
 		$this->load->view('pages/home',$data);
@@ -91,6 +89,12 @@ class Main extends CI_Controller {
 			$this->load->view('components/footer');	
 		}
 
+
+	}
+	public function delete_test($id=""){
+		$this->db->where('id', $id);
+		$this->db->delete('test');
+		redirect('main/index');
 
 	}
 

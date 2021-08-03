@@ -79,6 +79,11 @@ body main .utenti_iscritti a {
 body main .utenti_iscritti a:hover {
   font-weight: bolder;
 }
+body main .show {
+  display: block;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.6);
+}
 body footer {
   color: lightgray !important;
   background-color: black;

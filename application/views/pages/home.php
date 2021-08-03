@@ -34,7 +34,8 @@
                         echo '<div class="col d-flex justify-content-between"><span>'.$value.'</span>';
                         echo '
                         <span >
-                        <a href="#" id="delete" class="pe-3"><i class="fas fa-user-minus"></i></a>
+                        <a href="#" data-id="'.$id.'" class="pe-3 delete"><i class="fas fa-user-minus"></i></a>
+
                         <a href="/main/edit/'.$id.'"><i class="fas fa-edit"></i></a></span></div>
                         ';
 
@@ -44,7 +45,7 @@
             }
         ?>
     </div>
-    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">
@@ -56,10 +57,16 @@
                 ?>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                <button type="button" class="btn btn-danger">Elimina</button>
+                <a href="/main/index">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                </a> 
+                <a id="delete_modal" href="/main/index/<?php echo $arr[0]->id?>">
+                <button type="button" class="btn btn-danger">
+                       Elimina
+                    </button>
+                </a>
             </div>
             </div>
         </div>
-    </div> -->
+    </div>
 </div>
