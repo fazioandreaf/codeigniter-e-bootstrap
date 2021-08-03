@@ -13,7 +13,7 @@
     <label for="title">Nome</label>    
     <input type="text" class="form-control" name="nome" value="<?php
     if(!empty($_SESSION['item'])){
-        if(!empty($get) && !strpos($_SESSION['item'],'nome') )
+        if(!empty($get) && !strpos($_SESSION['item'],' nome') )
             echo set_value('nome',$get[0]->nome);
         else
             echo set_value('nome'); 
@@ -26,13 +26,32 @@
     ?>" >
     <label for="title">Cognome</label>
     <input type="text" class="form-control" name="cognome"  value="<?php 
-    if(!empty($get))
-        echo set_value('cognome',$get[0]->cognome);
-    else echo set_value('cognome'); ?>">   
+    if(!empty($_SESSION['item'])){
+        if(!empty($get) && !strpos($_SESSION['item'],' cognome') )
+            echo set_value('nome',$get[0]->cognome);
+        else
+            echo set_value('nome'); 
+    }else{
+        if(!empty($get) )
+        echo set_value('nome',$get[0]->cognome);
+        else
+        echo set_value('nome'); 
+    }
+    ?>">   
     <label for="title">Eta</label>
-    <input type="number" class="form-control" name="eta" value="<?php if(!empty($get))
-    echo set_value('eta',$get[0]->eta);
-    else echo set_value('eta'); ?>">
+    <input type="number" class="form-control" name="eta" value="<?php 
+    if(!empty($_SESSION['item'])){
+        if(!empty($get) && !strpos($_SESSION['item'],' et') )
+            echo set_value('nome',$get[0]->eta);
+        else
+            echo set_value('nome'); 
+    }else{
+        if(!empty($get) )
+        echo set_value('nome',$get[0]->eta);
+        else
+        echo set_value('nome'); 
+    }
+    ?>">
     <?php 
         $options = array(
             'maschio'=> 'maschio',
