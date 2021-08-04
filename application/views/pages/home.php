@@ -1,6 +1,6 @@
 <div class="container-fluid">
    <h1 class="border-bottom border-dark pt-4 pb-4"  >Corsisti</h1>
-   <a href="main/form">
+   <a href="/main/form">
    <button type="button" class="btn <?php 
            if(!empty($view)){
             if($view=='test') echo 'test';

@@ -62,7 +62,7 @@ body main form .error_form {
   left: 0;
   top: 50%;
   transform: translate(-120%, 0%);
-  background-color: lightgray;
+  background-color: var(--bs-light);
   border-radius: 1rem;
 }
 body main form .error_form span {

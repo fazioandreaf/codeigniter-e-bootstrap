@@ -90,14 +90,11 @@ class Main extends CI_Controller {
 			$this->load->view('pages/form',$data);
 			$this->load->view('components/footer');	
 		}
-
-
 	}
 	public function delete_test($id=""){
 		$this->db->where('id', $id);
 		$this->db->delete('test');
 		redirect('main/index');
-
 	}
 
 }

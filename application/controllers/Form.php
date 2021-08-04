@@ -7,12 +7,13 @@ class Form extends CI_Controller {
 		$this->load->helper('url_helper');		
 	}        
     public function create(){
+        $data['view']='test';
         $data['title']= "Precobias";
         $this->load->library('form_validation');
         $this->form_validation->set_rules('nome', 'Nome', 'required',
-            array('required'=>'Devi inserire il nome'));        
+            array('required'=>'Devi inserire il Nome/nome'));        
         $this->form_validation->set_rules('cognome', 'Cognome', 'required',
-            array('required'=>'Devi inserire il cognome'));
+            array('required'=>'Devi inserire il Cognome/surname'));
 
         $this->form_validation->set_rules('eta', 'Eta', 'required|greater_than[0]',array(
             'required'=>"Devi inserire l'etá",
@@ -51,9 +52,9 @@ class Form extends CI_Controller {
         $data['title']= "Precobias";
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('nome', 'Nome', 'required',array('required'=>'Devi inserire il nome')); 
+        $this->form_validation->set_rules('nome', 'Nome', 'required',array('required'=>'Devi inserire il Nome')); 
 
-        $this->form_validation->set_rules('cognome', 'Cognome', 'required',array('required'=>'Devi inserire il cognome'));
+        $this->form_validation->set_rules('cognome', 'Cognome', 'required',array('required'=>'Devi inserire il Cognome'));
 
         $this->form_validation->set_rules('eta', 'Eta', 'required|greater_than[0]',array('required'=>"Devi inserire l'etá",
         'greater_than'=>"Devi inserire un'etá maggiore di 0"

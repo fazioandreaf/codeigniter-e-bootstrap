@@ -63,4 +63,10 @@ class Test extends CI_Controller {
         }         
 
     }
+	public function delete_corsi_on_test($id_test="",$id_corsi=""){
+		$this->db->where('id_test', $id_test);
+		$this->db->where('id_corsi', $id_corsi);
+		$this->db->delete('test_corsi');
+		redirect('main/utente_singolo/'.$id_test);
+	}    
 }

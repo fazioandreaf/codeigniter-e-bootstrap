@@ -4,13 +4,14 @@
         <?php if(!empty($get)) echo 'Modifica corsista';else echo 'Aggiungi corsista'?>     
     </h1>
     <?php 
+        
     if(!empty($get))
     echo form_open('form/edit/'.$get[0]->id.'','method="post" class="d-flex flex-column align-items-center justify-content-evenly '); 
     else
     echo form_open('form/create','class="d-flex flex-column align-items-center justify-content-evenly " style="min-height:400px"'); 
     ?>
     <div class="form-floating mt-3 position-relative">   
-        <div class="error_form">
+        <div class="error_form fw-bolder">
             <?php
             if(!empty($_SESSION['item']))
                 echo '<span>'.$_SESSION['item'].'</span>';    
@@ -19,6 +20,7 @@
         </div>
         <input type="text" class="form-control" name="nome" value="<?php
             if(!empty($_SESSION['item'])){
+                
                 if(!empty($get) && !strpos($_SESSION['item'],' nome') )
                     echo set_value('nome',$get[0]->nome);
                 else
@@ -36,7 +38,7 @@
 
         <input type="text" class="form-control" name="cognome"  value="<?php 
             if(!empty($_SESSION['item'])){
-                if(!empty($get) && !strpos($_SESSION['item'],' cognome') )
+                if(!empty($get) && !strpos($_SESSION['item'],' Surname') )
                     echo set_value('nome',$get[0]->cognome);
                 else
                     echo set_value('nome'); 
