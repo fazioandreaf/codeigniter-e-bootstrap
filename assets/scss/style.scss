@@ -1,9 +1,10 @@
-:root{
-    --blue:rgb(0, 0, 170);
-    --gray:lightgray;
-}
-
 body{
+    .exp{
+        background-color: var(--bs-purple);
+        &:hover{
+            background-color:var(--bs-indigo) ;
+        }
+    }
     >.container-fluid{
         padding: 0;
     }
@@ -27,6 +28,10 @@ body{
         background-color: black;
     }
     main{
+        .error_form{
+            color: var(--bs-red);
+            
+        }
         .test{
             background-color: var(--bs-green);
             color: white;
@@ -66,6 +71,9 @@ body{
                     padding: 0.6rem;
                 }
             }
+            .exp{
+                color: white;
+            }
     
             input[type="text"],input[type="number"], select {
                 width: 100%;
@@ -81,6 +89,9 @@ body{
             }
         }
         .t-cust{
+            >div.utente_singolo{
+                width:300px;
+            }
             .row{
                 border-bottom: 1px solid gray;
 

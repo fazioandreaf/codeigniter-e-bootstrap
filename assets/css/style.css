@@ -1,8 +1,9 @@
-:root {
-  --blue:rgb(0, 0, 170);
-  --gray:lightgray;
+body .exp {
+  background-color: var(--bs-purple);
 }
-
+body .exp:hover {
+  background-color: var(--bs-indigo);
+}
 body > .container-fluid {
   padding: 0;
 }
@@ -27,6 +28,9 @@ body header .nav-link:hover {
 }
 body main {
   margin-top: 3rem;
+}
+body main .error_form {
+  color: var(--bs-red);
 }
 body main .test {
   background-color: var(--bs-green);
@@ -64,6 +68,9 @@ body main form .error_form {
 body main form .error_form span {
   padding: 0.6rem;
 }
+body main form .exp {
+  color: white;
+}
 body main form input[type=text], body main form input[type=number], body main form select {
   width: 100%;
   transition: all ease-in-out 0.2s;
@@ -75,6 +82,9 @@ body main form input[type=submit], body main form button[type=submit] {
   border-radius: 0.5rem;
   border: none;
   transition: all ease-in-out 0.2s;
+}
+body main .t-cust > div.utente_singolo {
+  width: 300px;
 }
 body main .t-cust .row {
   border-bottom: 1px solid gray;

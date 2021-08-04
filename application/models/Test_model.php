@@ -90,6 +90,15 @@ class Test_model extends CI_Model {
                         ->get();
                         return $query->result();
         }
+        public function test_job($id_test,$id){
+                $query= $this->db->select('job.id,job.job_title,job.job_description,job.id_test')
+                        ->from('job')
+                        ->join('test','test.id=job.id_test')
+                        ->where('job.id',$id)
+                        ->where('job.id_test',$id_test)
+                        ->get();
+                        return $query->result();                
+        }
 
         
 }

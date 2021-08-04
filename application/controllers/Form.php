@@ -94,8 +94,6 @@ class Form extends CI_Controller {
         );
         if(!empty($check)){
             foreach($check as $k=>$v){
-                // var_dump($v);
-                // die();
                 $data_job= array(
                     'id_test'=>$id,
                     'job_title'=> $v,

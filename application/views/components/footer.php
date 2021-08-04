@@ -4,6 +4,7 @@
         if(!empty($view)){
             if($view=='test') echo 'test">';
             elseif($view=='corso') echo 'corso">';
+            elseif($view=='exp') echo 'exp">';
         }else echo '">';
     ?>
 

@@ -6,17 +6,21 @@ class Job extends CI_Controller {
 		$this->load->model('test_model');
 		$this->load->helper('url_helper');		
 	}    
-    public function add($id=""){
+    public function add($id_test="",$id=""){
         $this->load->helper('form');
         $this->load->library('form_validation');
+        if($id!='')
+            $data['test']=$this->test_model->test_job($id_test,$id);       
+            else
+            $data['test']=$this->test_model->get_test($id_test);       
 
-        $data['test']=$this->test_model->get_test($id);        
         $data['title']='Precobias';
+        $data['view']='exp';
         $this->load->view('components/header',$data);
         $this->load->view('pages/esperienza',$data);
         $this->load->view('components/footer');
     }
-    public function add_function($id=''){
+    public function add_function($id_test="",$id=""){
         $data[ 'title']="Precobias";
         $this->load->library('form_validation');
         $this->form_validation->set_rules('job_title', 'Titolo', 'required',
@@ -27,24 +31,36 @@ class Job extends CI_Controller {
             'min_length'=>'Devi inserire un minimo di 50 caratteri'
         ));  
         if ($this->form_validation->run() === FALSE){
-            $this->add($id);
+            $this->add($id_test,$id);
         }
         else
         {
-            $this->set_job($id);
+            $this->set_job($id_test,$id);
         }                          
     }
-    public function set_job($id=''){
+    public function set_job($id_test='',$id=""){
         $this->load->helper('url');
-        $data= array(
-            'job_title'=> $this->input-> post('job_title'),
-            'job_description'=> $this->input-> post('job_description'),
-            'id_test'=>$id,
-        );
-        $this->db->insert('job',$data);
-        redirect('/main/utente_singolo/'.$id);
+        if($id!=''){
+            $data_edit= array(
+                'job_title'=> $this->input-> post('job_title'),
+                'job_description'=> $this->input-> post('job_description'),
+                'id_test'=>$id_test,
+                'id'=>$id,
+            );
+            $this->db->where('id',$id)
+                ->where('id_test',$id_test)
+                ->update('job',$data_edit);   
+        }else{            
+            $data= array(
+                'job_title'=> $this->input-> post('job_title'),
+                'job_description'=> $this->input-> post('job_description'),
+                'id_test'=>$id_test,
+            );
+            $this->db->insert('job',$data);
+        }
+        redirect('/main/utente_singolo/'.$id_test);
     }
-    public function delete($id="",$id_test=""){
+    public function delete($id_test="",$id=""){
         
         $this->db->where('id', $id);
         $this->db->delete('job');
@@ -53,5 +69,5 @@ class Job extends CI_Controller {
 
         // var_dump($id_test);
         // die();
-    }    
+    } 
 }
