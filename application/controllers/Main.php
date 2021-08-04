@@ -74,10 +74,12 @@ class Main extends CI_Controller {
 		$this->load->view('pages/corso_singolo',$data);
 		$this->load->view('components/footer');		
 	}
-	public function edit($get=''){
+	public function edit($id=''){
+		$data['view']='test';
         $this->load->library('session');
 		session_destroy();
-		$data['get']=$this->test_model->get_test($get);
+		$data['get']=$this->test_model->get_test($id);
+		$data['exp']=$this->test_model->singolo_ut_exp($id);
 		if(count($data['get'])==0){
 			show_404();
 		}else{

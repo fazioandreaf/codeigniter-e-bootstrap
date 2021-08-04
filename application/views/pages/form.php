@@ -9,7 +9,7 @@
 
     <?php 
     if(!empty($get))
-    echo form_open('form/edit/'.$get[0]->id.' ','class="d-flex flex-column align-items-center justify-content-evenly " style="height:400px"'); 
+    echo form_open('form/edit/'.$get[0]->id.' ','class="d-flex flex-column align-items-center justify-content-evenly '); 
     else
     echo form_open('form/create','class="d-flex flex-column align-items-center justify-content-evenly " style="height:400px"'); 
     ?>
@@ -95,12 +95,27 @@
         echo 'type="submit" name="submit" value="Edit">';
 
     }
-    else
+    else{
         echo '<input class="mt-4 p-2 ';
         if(!empty($view)){
             if($view=='test') echo ' test"';
             elseif($view=='corso') echo ' corso"';}
         echo 'type="submit" name="submit" value="Crea un nuovo utente">';
+    }
+
+    if(!empty($exp)){
+        echo '<div class="d-flex flex-column align-items-center mt-3"> <h3> Esperienze </h3>';
+        echo '<div class="d-flex justify-content-evenly flex-wrap mt-3">';
+        foreach($exp as $i){
+    
+            echo '<div class="d-flex flex-column flex-wrap " style="flex-basis:33%" ><h5>'.$i->job_title.'</h5>';
+            echo '<p style="word-break: break-all" class="flex-wrap">'.$i->job_description.'</p></div>';
+            
+        }
+        echo '</div>';
+        echo '</div>';
+    }
+    
     ?>
 
 
