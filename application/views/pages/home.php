@@ -11,38 +11,34 @@
     </button>
     </a>
    <div class="pt-4 pb-5 mb-5 container-fluid t-cust">
-        <div class="row">
-            <div class="fw-bold col-4 ps-5">Nome</div>
+        <div class="row py-2">
+            <div class="fw-bold col-2">Funzioni</div>
+            <div class="fw-bold col-3">Nome</div>
             <div class="fw-bold col-3">Cognome</div>
-            <div class="fw-bold col-3">Etá</div>
-            <div class="fw-bold col">Genere</div>
+            <div class="fw-bold col-1">Etá</div>
+            <div class="fw-bold col-3">Genere</div>
         </div>
         <?php 
             foreach($arr as $i){
-                echo '<div class="row pt-2 pb-2">';
+                echo '<div class="row py-2">';
                 $id=$i->id;
+                echo '<div class="col-2">
+                <span class="action">
+                <a href="/main/utente_singolo/'.$id.'" class="text-decoration-none"><i class="fas fa-eye"></i></a>
+                <a href="#" data-id="'.$id.'" class="delete"><i class="fas fa-user-minus"></i></a>
+                <a href="/main/edit/'.$id.'"><i class="fas fa-edit"></i></a></span>
+                </div>';
                 foreach($i as $key=>$value){
-
-                    if($key=='id')
-                    echo '<div class="col-4"><a href="/main/utente_singolo/'.$value.'" class="text-decoration-none"><i class="fas fa-eye"></i></a>';
                     if($key=='nome')
-                    echo '<span class="ms-3">'.$value.'</span></div>';
+                    echo '<div class="col-3"><span>'.$value.'</span></div>';
                     if($key=='cognome')
-                    echo '<div class="col-3">'.$value.'</div>';
+                    echo '<div class="col-3"><span>'.$value.'</span></div>';
                     if($key=='eta')
-                    echo '<div class="col">'.$value.'</div>';
-                    if($key=='genere'){
-                        echo '<div class="col d-flex justify-content-between"><span>'.$value.'</span>';
-                        echo '
-                        <span class="action">
-                        <a href="#" data-id="'.$id.'" class="pe-3 delete"><i class="fas fa-user-minus"></i></a>
-
-                        <a href="/main/edit/'.$id.'"><i class="fas fa-edit"></i></a></span></div>
-                        ';
-
-                    }
-                    }       
-                    echo '</div>';
+                    echo '<div class="col-1"><span>'.$value.'</span></div>';
+                    if($key=='genere')
+                        echo '<div class="col d-flex justify-content-between"><span>'.$value.'</span></div>';
+                }       
+                echo '</div>';
             }
         ?>
     </div>
