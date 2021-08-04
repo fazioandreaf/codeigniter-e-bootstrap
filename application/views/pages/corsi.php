@@ -1,13 +1,15 @@
 <div class="container-fluid">
    <h1 class="border-bottom border-dark pt-4 pb-4"  >Corsi</h1>
    <a href="/main/corso_new">
-        <button type="button" class="btn btn-primary">
+        <button type="button" style="border:none" class="btn btn-primary <?php
+        if(!empty($view)){
+            if($view=='test') echo ' test"';
+            elseif($view=='corso') echo ' corso"';
+        }        
+        ?>">
             Inserimento nuovo  corso
         </button>
     </a>
-   <!-- <div class="pt-4 pb-4">
-    filtri
-   </div> -->
    <div class="pt-4 pb-4 container-fluid t-cust">
     <div class="row pt-1 pb-1">
         <div class="fw-bold col-4">Titolo</div>

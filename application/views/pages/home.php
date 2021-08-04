@@ -1,17 +1,18 @@
 <div class="container-fluid">
    <h1 class="border-bottom border-dark pt-4 pb-4"  >Corsisti</h1>
    <a href="main/form">
-   <button type="button" class="btn btn-primary">
+   <button type="button" class="btn <?php 
+           if(!empty($view)){
+            if($view=='test') echo 'test';
+            elseif($view=='corso') echo 'corso';}
+?>">
 
        Inserimento nuovo  utente
     </button>
     </a>
-   <!-- <div class="pt-4 pb-4">
-    filtri
-   </div> -->
-   <div class="pt-4 pb-4 container-fluid t-cust">
+   <div class="pt-4 pb-5 mb-5 container-fluid t-cust">
         <div class="row">
-            <div class="fw-bold col-4">Nome</div>
+            <div class="fw-bold col-4 ps-5">Nome</div>
             <div class="fw-bold col-3">Cognome</div>
             <div class="fw-bold col-3">Etá</div>
             <div class="fw-bold col">Genere</div>
@@ -33,7 +34,7 @@
                     if($key=='genere'){
                         echo '<div class="col d-flex justify-content-between"><span>'.$value.'</span>';
                         echo '
-                        <span >
+                        <span class="action">
                         <a href="#" data-id="'.$id.'" class="pe-3 delete"><i class="fas fa-user-minus"></i></a>
 
                         <a href="/main/edit/'.$id.'"><i class="fas fa-edit"></i></a></span></div>
@@ -45,7 +46,7 @@
             }
         ?>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">

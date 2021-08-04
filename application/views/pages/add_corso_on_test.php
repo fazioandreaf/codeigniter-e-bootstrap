@@ -6,7 +6,7 @@
         </h1>
     <h2> Elenco Corsi</h2>
         <a href="/main/corso_new" class="mt-3 mb-3 d-inline-block">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary corso" style="border:none">
                 Inserimento nuovo corso
             </button>
         </a>
@@ -38,7 +38,7 @@
             echo '</div>';      
         }
         ?>
-        <button type="submit" class="mt-3 mb-3" >Iscriviti ai corsi</button>
+        <button type="submit" class="mt-4 p-2 test" >Iscriviti ai corsi</button>
         <?php echo form_close()?>
     
         </div>

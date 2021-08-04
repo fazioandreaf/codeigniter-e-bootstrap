@@ -1,3 +1,8 @@
+:root {
+  --blue:rgb(0, 0, 170);
+  --gray:lightgray;
+}
+
 body > .container-fluid {
   padding: 0;
 }
@@ -5,8 +10,15 @@ body header {
   margin-bottom: 3rem;
   background-color: black;
 }
+body header.test {
+  background-color: var(--bs-green);
+}
+body header.corso {
+  background-color: var(--bs-gray);
+  color: black;
+}
 body header .nav-link {
-  color: lightgray !important;
+  color: white;
   transition: all ease-in-out 0.3s;
 }
 body header .nav-link:hover {
@@ -15,6 +27,22 @@ body header .nav-link:hover {
 }
 body main {
   margin-top: 3rem;
+}
+body main .test {
+  background-color: var(--bs-green);
+  color: white;
+}
+body main .test:hover {
+  color: white;
+  background-color: #125f3b;
+}
+body main .corso {
+  background-color: var(--bs-gray);
+  color: white;
+}
+body main .corso:hover {
+  background-color: #15171a;
+  color: white;
 }
 body main textarea {
   resize: none;
@@ -44,15 +72,9 @@ body main form input[type=text]:hover, body main form input[type=number]:hover, 
   box-shadow: lightgray 0px 0px 3px 3px;
 }
 body main form input[type=submit], body main form button[type=submit] {
-  background-color: black;
-  color: lightgray;
   border-radius: 0.5rem;
   border: none;
   transition: all ease-in-out 0.2s;
-}
-body main form input[type=submit]:hover, body main form button[type=submit]:hover {
-  color: black;
-  background-color: lightgray;
 }
 body main .t-cust .row {
   border-bottom: 1px solid gray;
@@ -63,17 +85,22 @@ body main .t-cust .row:nth-child(2n) {
 body main .t-cust .row:nth-child(2n) a:hover {
   background-color: white;
 }
+body main .t-cust .action a {
+  color: var(--bs-danger);
+}
+body main .t-cust .action a:last-of-type {
+  color: var(--bs-info);
+}
 body main .t-cust a {
   transition: all ease-in-out 0.2s;
 }
 body main .t-cust a:hover {
-  color: darkgreen;
   padding: 0.5rem;
   border-radius: 50%;
   background-color: #f2f2f2;
 }
 body main .utenti_iscritti a {
-  color: #0D6EFD;
+  color: var(--bs-green);
   transition: all ease-in-out 0.2s;
 }
 body main .utenti_iscritti a:hover {
@@ -85,8 +112,16 @@ body main .show {
   background-color: rgba(0, 0, 0, 0.6);
 }
 body footer {
-  color: lightgray !important;
+  color: white;
   background-color: black;
+}
+body footer.test {
+  color: white;
+  background-color: var(--bs-green);
+}
+body footer.corso {
+  background-color: var(--bs-gray);
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

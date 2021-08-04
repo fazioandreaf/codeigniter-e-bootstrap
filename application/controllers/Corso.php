@@ -11,12 +11,17 @@ class Corso extends CI_Controller {
         $data['title']= "Precobias";
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('titolo', 'Titolo', 'required');
-        $this->form_validation->set_rules('descrizione', 'Descrizione', 'required');
+        $this->form_validation->set_rules('titolo', 'Titolo', 'required',
+        array(
+            'required'=>'Devi inserire un titolo',
+        ));
+        $this->form_validation->set_rules('descrizione', 'Descrizione', 'required',array(
+            'required'=>'Devi inserire una descrizione',
+        ));
         if ($this->form_validation->run() === FALSE)
         {
             $this->load->view('components/header', $data);
-            $this->load->view('pages/corso_unsucces');
+            $this->load->view('pages/corso_new');
             $this->load->view('components/footer');
     
         }
@@ -37,6 +42,7 @@ class Corso extends CI_Controller {
         redirect('/main/corsi');
     }
     public function add($id=''){
+        $data['view']="corso";
         $this->load->helper('form');
         $this->load->library('form_validation');
 

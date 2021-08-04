@@ -7,6 +7,7 @@ class Test extends CI_Controller {
 		$this->load->helper('url_helper');		
 	}        
     public function test_on_corso($id=""){
+        $data['view']='test';
         $this->load->helper('form');
         $this->load->library('form_validation');
 

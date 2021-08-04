@@ -1,12 +1,23 @@
+:root{
+    --blue:rgb(0, 0, 170);
+    --gray:lightgray;
+}
+
 body{
     >.container-fluid{
         padding: 0;
     }
     header{
         margin-bottom: 3rem;
-
+        &.test{
+            background-color: var(--bs-green);
+        }
+        &.corso{
+            background-color: var(--bs-gray);
+            color: black;
+        }        
         .nav-link{
-            color: lightgray !important;
+            color: white;
             transition: all ease-in-out 0.3s;
             &:hover{
                 color: white;
@@ -16,12 +27,28 @@ body{
         background-color: black;
     }
     main{
+        .test{
+            background-color: var(--bs-green);
+            color: white;
+            &:hover{
+                color:white;
+                background-color: #125f3b;
+            }
+
+        }
+        .corso{
+            background-color: var(--bs-gray);
+            color: white;
+            &:hover{
+                background-color: #15171a;
+                color: white;
+            }
+        }     
         textarea{
             resize:none;
         }
         a{
             color: #0D6EFD;
-
             text-decoration: none;
         }
         margin-top:3rem;
@@ -48,15 +75,9 @@ body{
                 }
             }
             input[type='submit'],button[type="submit"]{
-                background-color: black;
-                color: lightgray;
                 border-radius: 0.5rem;
                 border:none;
                 transition: all ease-in-out 0.2s;
-                &:hover{
-                    color:black;
-                    background-color: lightgray;
-                }
             }
         }
         .t-cust{
@@ -73,10 +94,15 @@ body{
 
                 }
             }
+            .action a{
+                color:  var(--bs-danger);
+                &:last-of-type{
+                    color: var(--bs-info);
+                }
+            }
             a{
                 transition: all ease-in-out 0.2s;
               &:hover{
-                  color: darkgreen;
                   padding: 0.5rem;
                   border-radius: 50%;
                   background-color: rgb(242, 242, 242);
@@ -85,11 +111,10 @@ body{
         }
         .utenti_iscritti{
             a{
-                color:#0D6EFD ;
+                color:var(--bs-green) ;
                 transition: all ease-in-out 0.2s;
                 &:hover{
                     font-weight: bolder;
-                    // color: darkgreen;
                 }
             }
         }
@@ -100,8 +125,16 @@ body{
         }
     }
     footer{
-        color: lightgray !important;
+        color: white;
         background-color: black;
+        &.test{
+            color: white;
+            background-color: var(--bs-green);
+        }
+        &.corso{
+            background-color: var(--bs-gray);
+            color: white;
+        }     
 
     }
 }

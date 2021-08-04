@@ -5,7 +5,7 @@ function init(){
         
     function toggle(e){
         let id=this.dataset.id;
-        let modal=document.getElementById('exampleModal');
+        let modal=document.getElementById('modal');
         modal.classList.add('show');
         let anchor=document.getElementById('delete_modal');
         anchor.href='/main/delete_test/'+id;

@@ -9,12 +9,7 @@ class Main extends CI_Controller {
 		$this->load->library('javascript/jquery');	
 	}
 	public function index($page='home'){
-		$this->load->library('javascript');	
-		$this->load->library('javascript/jquery');	
-
-		$this->javascript;
-		$this->jquery;
-		
+		$data['view']='test';
 		$data['arr']=($this->test_model->get_test());
 		if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
         {
@@ -26,6 +21,7 @@ class Main extends CI_Controller {
 		$this->load->view('components/footer');
 	}
 	public function form(){
+		$data['view']='test';
 		$this->load->helper('form');
         $this->load->library('form_validation');
 		$data['title'] = '';
@@ -34,6 +30,7 @@ class Main extends CI_Controller {
 		$this->load->view('components/footer');
 	}
 	public function corsi($page='corsi'){
+		$data['view']='corso';
 		$data['arr']=$this->test_model->get_corsi();
 		if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
         {
@@ -45,6 +42,7 @@ class Main extends CI_Controller {
 		$this->load->view('components/footer');
 	}
 	public function corso_new(){
+		$data['view']='corso';
 		$this->load->helper('form');
         $this->load->library('form_validation');
 		$data['title'] = 'Precobias';
@@ -58,6 +56,7 @@ class Main extends CI_Controller {
 			$data['get']=$this->test_model->get_test($get);
 		
 		$data['get_exp']=$this->test_model->singolo_ut_exp($get);
+		$data['view']='test';
 		if(count($data['get_exp'])==0)
 			$data['get_exp']=$this->test_model->get_test($get);		
 		$data['title'] = 'Precobias';
@@ -66,6 +65,7 @@ class Main extends CI_Controller {
 		$this->load->view('components/footer');		
 	}
 	public function corso_singolo($get=''){
+		$data['view']='corso';
 		$data['get']=$this->test_model->singolo_corso($get);
 		if(count($data['get'])==0)
 		$data['get']=$this->test_model->get_corsi($get);

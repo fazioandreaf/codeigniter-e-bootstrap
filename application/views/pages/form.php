@@ -87,11 +87,24 @@
     ?>
     </div>
     <?php
-    if(!empty($get))
-        echo '<input class="mt-4 p-2" type="submit" name="submit" value="Edit">';
+    if(!empty($get)){
+        echo '<input class="mt-4 p-2 ';
+        if(!empty($view)){
+            if($view=='test') echo ' test"';
+            elseif($view=='corso') echo ' corso"';}
+        echo 'type="submit" name="submit" value="Edit">';
+
+    }
     else
-        echo '<input class="mt-4 p-2" type="submit" name="submit" value="Crea un nuovo utente">';
+        echo '<input class="mt-4 p-2 ';
+        if(!empty($view)){
+            if($view=='test') echo ' test"';
+            elseif($view=='corso') echo ' corso"';}
+        echo 'type="submit" name="submit" value="Crea un nuovo utente">';
     ?>
+
+
+
 
     <?php echo form_close()?>
 <div class="container-fluid">

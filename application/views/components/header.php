@@ -14,7 +14,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
     <div class="container-fluid" style="position:relative">
-    <header class="fixed-top">
+    <?php 
+        echo '<header class="fixed-top ';
+        if(!empty($view)){
+            if($view=='test') echo 'test">';
+            elseif($view=='corso') echo 'corso">';
+        }else echo '">';
+    ?>
+     
         <div class="nav ">
 
             <span class="nav-link">

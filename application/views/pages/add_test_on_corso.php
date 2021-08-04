@@ -6,7 +6,7 @@
         </h1>
     <h2> Elenco corsisti nel database</h2>
         <a href="/main/form" class="mt-3 mb-3 d-inline-block">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary test" style="border:none">
                 Inserimento nuovo  utente
             </button>
         </a>
@@ -37,7 +37,7 @@
             echo '</div>';      
         }
         ?>
-        <button type="submit" class="mt-3 mb-3" >Aggiungi corsisti</button>
+        <button type="submit" class="mt-4 p-2 corso mb-3" >Aggiungi corsisti</button>
         <?php echo form_close()?>
     
         </div>
