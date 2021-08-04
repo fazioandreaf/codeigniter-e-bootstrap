@@ -23,7 +23,7 @@ class Job extends CI_Controller {
         array('required'=>"Devi inserire il nome dell'esperienza lavorativa"));      
         $this->form_validation->set_rules('job_description', 'descrizione', 'required|min_length[50]',
         array(
-            'required'=>'Devi inserire un minimo di 50 caratteri',
+            'required'=>'Devi inserire una descrizione con un minimo di 50 caratteri',
             'min_length'=>'Devi inserire un minimo di 50 caratteri'
         ));  
         if ($this->form_validation->run() === FALSE){

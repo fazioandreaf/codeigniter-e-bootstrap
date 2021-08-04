@@ -9,7 +9,7 @@
 
     <?php 
     if(!empty($get))
-    echo form_open('form/edit/'.$get[0]->id.' ','class="d-flex flex-column align-items-center justify-content-evenly '); 
+    echo form_open('form/edit/'.$get[0]->id.'','method="post" class="d-flex flex-column align-items-center justify-content-evenly '); 
     else
     echo form_open('form/create','class="d-flex flex-column align-items-center justify-content-evenly " style="height:400px"'); 
     ?>
@@ -54,7 +54,6 @@
         <label for="cognome" class="form-floating">Cognome</label>
     </div>
     <div class="form-floating">
-        
         <input type="number" min="0" class="form-control" name="eta" value="<?php 
             if(!empty($_SESSION['item'])){
                 if(!empty($get) && !strpos($_SESSION['item'],' et') )
@@ -71,24 +70,42 @@
         <label for="eta">Eta</label>
     </div>
     <div class="form-floating">
+        <?php 
+            $options = array(
+                'Maschio'=> 'Maschio',
+                'Femmina'=> 'Femmina',
+                'Altro'=> 'Altro',
+            );
+            if(!empty($get))
+                echo form_dropdown('genere', $options, $get[0]->genere,'class="form-select"');
+            else
+                echo form_dropdown('genere', $options,'','class="form-select"');
 
-    <?php 
-        $options = array(
-            'Maschio'=> 'Maschio',
-            'Femmina'=> 'Femmina',
-            'Altro'=> 'Altro',
-        );
-        if(!empty($get))
-            echo form_dropdown('genere', $options, $get[0]->genere,'class="form-select"');
-        else
-            echo form_dropdown('genere', $options,'','class="form-select"');
-
-        echo form_label('Genere', 'genere');
-    ?>
+            echo form_label('Genere', 'genere');
+        ?>
     </div>
+    <div class="d-flex flex-column align-items-center mt-3"> <h3> Esperienze </h3>
     <?php
+    if(!empty($exp)){
+        echo '<div class="d-flex justify-content-evenly  flex-wrap mt-3">';
+        foreach($exp as $i){
+            echo '<div class="d-flex flex-column mt-3">
+            <div class="form-floating"><input type="text" class="form-control" name="job_title['.$i->id.']" value="'.$i->job_title.'"/>';
+            echo '<label for="job_title" class="form-floating">Titolo esperienza</label>
+            ';
+            echo'</div>';
+            echo '<div class="form-floating">
+            <textarea name="job_description['.$i->id.']" class="form-control mt-1" style="height:200px" >'.$i->job_description.'</textarea>';
+            echo '<label for="job_description" class="form-floating">Desrizione </label>
+            ';
+            echo'</div>';            
+            echo '</div>';
+        }
+        echo '</div>';
+    }
+    
     if(!empty($get)){
-        echo '<input class="mt-4 p-2 ';
+        echo '<input style="margin-bottom:100px" class="mt-4 p-2 ';
         if(!empty($view)){
             if($view=='test') echo ' test"';
             elseif($view=='corso') echo ' corso"';}
@@ -96,26 +113,12 @@
 
     }
     else{
-        echo '<input class="mt-4 p-2 ';
+        echo '<input style="margin-bottom:100px" class="mt-4 p-2 ';
         if(!empty($view)){
             if($view=='test') echo ' test"';
             elseif($view=='corso') echo ' corso"';}
         echo 'type="submit" name="submit" value="Crea un nuovo utente">';
     }
-
-    if(!empty($exp)){
-        echo '<div class="d-flex flex-column align-items-center mt-3"> <h3> Esperienze </h3>';
-        echo '<div class="d-flex justify-content-evenly flex-wrap mt-3">';
-        foreach($exp as $i){
-    
-            echo '<div class="d-flex flex-column flex-wrap " style="flex-basis:33%" ><h5>'.$i->job_title.'</h5>';
-            echo '<p style="word-break: break-all" class="flex-wrap">'.$i->job_description.'</p></div>';
-            
-        }
-        echo '</div>';
-        echo '</div>';
-    }
-    
     ?>
 
 

@@ -82,7 +82,14 @@ class Test_model extends CI_Model {
                 ->get();
                 return $query->result();
         }
-
+        public function id_job_test($id){
+                $query= $this->db->select('job.id')
+                        ->from('job')
+                        ->join('test','test.id=job.id_test')
+                        ->where('job.id_test',$id)
+                        ->get();
+                        return $query->result();
+        }
 
         
 }
