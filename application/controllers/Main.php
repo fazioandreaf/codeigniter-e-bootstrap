@@ -76,10 +76,12 @@ class Main extends CI_Controller {
 		$this->load->view('pages/utente_singolo');
 		$this->load->view('components/footer');		
 	}
-	public function utente_singolo_json(){
-		// $id=$_POST['id'];
-		// var_dump($_GET['id']);
-		$data['data']=$this->api_model->utente_singolo_api($_GET['id']);
+	public function utente_singolo_corsi_json(){
+		$data['data']=$this->api_model->utente_singolo_corsi_api($_GET['id']);
+		echo json_encode($data['data']);
+	}
+	public function utente_singolo_exp_json(){
+		$data['data']=$this->api_model->utente_singolo_exp_api($_GET['id']);
 		echo json_encode($data['data']);
 	}
 	public function corso_singolo($get=''){

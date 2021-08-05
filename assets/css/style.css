@@ -86,10 +86,16 @@ body main form input[type=submit], body main form button[type=submit] {
   border: none;
   transition: all ease-in-out 0.2s;
 }
+body main .t-cust, body main .t-cust table {
+  width: 100%;
+}
+body main .t-cust tr:nth-child(2n), body main .t-cust table tr:nth-child(2n) {
+  background: #f9f9f9;
+}
 body main .t-cust > div.utente_singolo {
   width: 300px;
 }
-body main .t-cust .row {
+body main .t-cust tr, body main .t-cust .row {
   border-bottom: 1px solid gray;
 }
 body main .t-cust .row:nth-child(2n) {

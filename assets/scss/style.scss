@@ -93,12 +93,18 @@ body{
             }
         }
         .t-cust{
+            &,table{
+                width: 100%;
+                tr:nth-child(2n){
+                    background: #f9f9f9;
+
+                }
+            }
             >div.utente_singolo{
                 width:300px;
             }
-            .row{
+            tr, .row{
                 border-bottom: 1px solid gray;
-
             }
             .row:nth-child(2n){
                 background-color: #f9f9f9;
