@@ -25,16 +25,16 @@
                 echo '<div class="col-2">
                 <span class="action">
                 <a href="/main/utente_singolo/'.$id.'" class="text-decoration-none"><i class="fas fa-eye"></i></a>
-                <a href="#" data-id="'.$id.'" class="delete"><i class="fas fa-user-minus"></i></a>
-                <a href="/main/edit/'.$id.'"><i class="fas fa-edit"></i></a></span>
+                <a href="/main/edit/'.$id.'"><i class="fas fa-edit"></i></a>
+                <a href="#" data-id="'.$id.'" class="delete"><i class="fas fa-user-minus"></i></a></span>
                 </div>';
                 foreach($i as $key=>$value){
                     if($key=='nome')
-                    echo '<div class="col-3"><span>'.$value.'</span></div>';
+                        echo '<div class="col-3"><span>'.$value.'</span></div>';
                     if($key=='cognome')
-                    echo '<div class="col-3"><span>'.$value.'</span></div>';
+                        echo '<div class="col-3"><span>'.$value.'</span></div>';
                     if($key=='eta')
-                    echo '<div class="col-1"><span>'.$value.'</span></div>';
+                        echo '<div class="col-1"><span>'.$value.'</span></div>';
                     if($key=='genere')
                         echo '<div class="col d-flex justify-content-between"><span>'.$value.'</span></div>';
                 }       

@@ -96,10 +96,13 @@ body main .t-cust .row:nth-child(2n) a:hover {
   background-color: white;
 }
 body main .t-cust .action a {
-  color: var(--bs-danger);
+  color: var(--bs-cyan);
+}
+body main .t-cust .action a:first-of-type {
+  color: var(--bs-green);
 }
 body main .t-cust .action a:last-of-type {
-  color: var(--bs-info);
+  color: var(--bs-danger);
 }
 body main .t-cust a {
   transition: all ease-in-out 0.2s;

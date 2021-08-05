@@ -21,7 +21,8 @@
         <input type="text" class="form-control" name="nome" value="<?php
             if(!empty($_SESSION['item'])){
                 
-                if(!empty($get) && !strpos($_SESSION['item'],' nome') )
+                
+                if(!empty($get) && !strpos($_SESSION['item'],' Name') )
                     echo set_value('nome',$get[0]->nome);
                 else
                     echo set_value('nome'); 

@@ -106,9 +106,12 @@ body{
                 }
             }
             .action a{
-                color:  var(--bs-danger);
+                color:var(--bs-cyan);
+                &:first-of-type{
+                    color:var(--bs-green)
+                }
                 &:last-of-type{
-                    color: var(--bs-info);
+                    color: var(--bs-danger);
                 }
             }
             a{
