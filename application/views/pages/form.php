@@ -50,20 +50,22 @@
         <label for="cognome" class="floatingTextarea2">Cognome</label>
     </div>
     <div class="form-floating mt-3">
-        <input type="number" min="0" class="form-control" name="eta" value="<?php 
+        <input v-model="eta" type="number" min="0" class="form-control" name="eta" value="<?php 
             if(!empty($_SESSION['item'])){
-                if(!empty($get) && !strpos($_SESSION['item'],' et') )
-                    echo set_value('nome',$get[0]->eta);
+                if(!empty($get) && !strpos($_SESSION['item'],' eta') )
+                    echo set_value('eta',$get[0]->eta);
                 else
-                    echo set_value('nome'); 
+                    echo set_value('eta'); 
             }else{
                 if(!empty($get) )
-                echo set_value('nome',$get[0]->eta);
+                echo set_value('eta',$get[0]->eta);
                 else
-                echo set_value('nome'); 
+                echo set_value('eta'); 
             }
         ?>">
         <label for="eta">Eta</label>
+        <span v-if="eta<18" class="fst-italic">Inserire una etá maggiore di 18</span>
+        <!-- <div v-else></div> -->
     </div>
     <div class="form-floating mt-3">
         <?php 
