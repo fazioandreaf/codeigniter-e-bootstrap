@@ -6,10 +6,10 @@
     <div class="container-fluid">
         <ul>
             <?php 
-                echo '<li> Nome: '.$get[0]->nome.'</li>';
-                echo '<li> Cognome: '.$get[0]->cognome.'</li>';
-                echo '<li> Etá: '.$get[0]->eta.'</li>';
-                echo '<li> Genere: '.$get[0]->genere.'</li>';
+                // echo '<li> Nome: '.$get[0]->nome.'</li>';
+                // echo '<li> Cognome: '.$get[0]->cognome.'</li>';
+                // echo '<li> Etá: '.$get[0]->eta.'</li>';
+                // echo '<li> Genere: '.$get[0]->genere.'</li>';
             
             ?>
         </ul>

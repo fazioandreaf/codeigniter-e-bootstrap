@@ -17,7 +17,7 @@
             else
                 echo validation_errors('<span>', '</span>'); ?>
         </div>
-        <input type="text" class="form-control" name="nome" value="<?php
+        <input v-model="nome" type="text" class="form-control" name="nome" value="<?php
             if(!empty($_SESSION['item'])){      
                 if(!empty($get) && !strpos($_SESSION['item'],' Name') )
                     echo set_value('nome',$get[0]->nome);
@@ -30,11 +30,13 @@
                 echo set_value('nome'); 
             }
         ?>" >
-        <label for="nome" class="floatingTextarea2">Nome</label>    
+        <label for="nome" class="floatingTextarea2">Nome</label> 
+        <span v-if="nome==''" class="fst-italic">Inserire un nome valido</span>
+
     </div>
     <div class="form-floating mt-3">
 
-        <input type="text" class="form-control" name="cognome"  value="<?php 
+        <input v-model="cognome" type="text" class="form-control" name="cognome"  value="<?php 
             if(!empty($_SESSION['item'])){
                 if(!empty($get) && !strpos($_SESSION['item'],' Surname') )
                     echo set_value('nome',$get[0]->cognome);
@@ -48,6 +50,8 @@
             }
         ?>">   
         <label for="cognome" class="floatingTextarea2">Cognome</label>
+        <span v-if="cognome==''" class="fst-italic">Inserire un Cognome valido</span>
+
     </div>
     <div class="form-floating mt-3">
         <input v-model="eta" type="number" min="0" class="form-control" name="eta" value="<?php 
@@ -65,7 +69,6 @@
         ?>">
         <label for="eta">Eta</label>
         <span v-if="eta<18" class="fst-italic">Inserire una etá maggiore di 18</span>
-        <!-- <div v-else></div> -->
     </div>
     <div class="form-floating mt-3">
         <?php 

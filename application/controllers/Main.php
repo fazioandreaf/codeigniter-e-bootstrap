@@ -4,6 +4,7 @@ class Main extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('test_model');
+		$this->load->model('api_model');
 		$this->load->helper('url_helper');	
 		$this->load->library('javascript');	
 		$this->load->library('javascript/jquery');	
@@ -16,7 +17,7 @@ class Main extends CI_Controller {
         }
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header_1',$data);
-$this->load->view('components/header_2',$data);
+		$this->load->view('components/header_2',$data);
 		$this->load->view('components/home_script',$data);
 		$this->load->view('pages/home');
 		$this->load->view('components/footer');
@@ -32,7 +33,7 @@ $this->load->view('components/header_2',$data);
 		$data['title'] = '';
 		$this->load->view('components/header_1',$data);
 		$this->load->view('components/test_new_script');
-		$this->load->view('components/header_2',$data);
+				$this->load->view('components/header_2',$data);
 		$this->load->view('pages/form');
 		$this->load->view('components/footer');
 	}
@@ -45,7 +46,7 @@ $this->load->view('components/header_2',$data);
         }
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header_1',$data);
-$this->load->view('components/header_2',$data);
+		$this->load->view('components/header_2',$data);
 		$this->load->view('pages/corsi',$data);
 		$this->load->view('components/footer');
 	}
@@ -55,7 +56,7 @@ $this->load->view('components/header_2',$data);
         $this->load->library('form_validation');
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header_1',$data);
-$this->load->view('components/header_2',$data);
+		$this->load->view('components/header_2',$data);
 		$this->load->view('pages/corso_new');
 		$this->load->view('components/footer');
 	}
@@ -65,14 +66,21 @@ $this->load->view('components/header_2',$data);
 			$data['get']=$this->test_model->get_test($get);
 		
 		$data['get_exp']=$this->test_model->singolo_ut_exp($get);
-		$data['view']='test';
 		if(count($data['get_exp'])==0)
 			$data['get_exp']=$this->test_model->get_test($get);		
+		$data['view']='test';
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header_1',$data);
-$this->load->view('components/header_2',$data);
+		$this->load->view('components/utente_singolo_script',$data);
+		$this->load->view('components/header_2',$data);
 		$this->load->view('pages/utente_singolo');
 		$this->load->view('components/footer');		
+	}
+	public function utente_singolo_json(){
+		// $id=$_POST['id'];
+		// var_dump($_GET['id']);
+		$data['data']=$this->api_model->utente_singolo_api($_GET['id']);
+		echo json_encode($data['data']);
 	}
 	public function corso_singolo($get=''){
 		$data['view']='corso';
@@ -81,7 +89,7 @@ $this->load->view('components/header_2',$data);
 		$data['get']=$this->test_model->get_corsi($get);
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header_1',$data);
-$this->load->view('components/header_2',$data);
+		$this->load->view('components/header_2',$data);
 		$this->load->view('pages/corso_singolo',$data);
 		$this->load->view('components/footer');		
 	}
@@ -98,7 +106,7 @@ $this->load->view('components/header_2',$data);
 			$this->load->library('form_validation');	
 			$data['title'] = 'Precobias';
 			$this->load->view('components/header_1',$data);
-$this->load->view('components/header_2',$data);
+		$this->load->view('components/header_2',$data);
 			$this->load->view('pages/form',$data);
 			$this->load->view('components/footer');	
 		}
