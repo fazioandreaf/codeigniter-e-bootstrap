@@ -69,7 +69,7 @@
                 <a href="#">
                     <button type="button" class="btn btn-secondary"  @click="log(0,'')" data-bs-dismiss="modal">Chiudi</button>
                 </a> 
-                <a id="delete_modal" :href="'/main/index/'+id">
+                <a id="delete_modal" :href="'/main/delete_test/'+id">
                 <button type="button" class="btn btn-danger">
                        Elimina
                     </button>
