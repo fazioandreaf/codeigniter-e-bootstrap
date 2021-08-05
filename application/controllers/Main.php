@@ -17,8 +17,8 @@ class Main extends CI_Controller {
         }
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header_1',$data);
-		$this->load->view('components/header_2',$data);
 		$this->load->view('components/home_script',$data);
+		$this->load->view('components/header_2',$data);
 		$this->load->view('pages/home');
 		$this->load->view('components/footer');
 	}
@@ -33,22 +33,26 @@ class Main extends CI_Controller {
 		$data['title'] = '';
 		$this->load->view('components/header_1',$data);
 		$this->load->view('components/test_new_script');
-				$this->load->view('components/header_2',$data);
+		$this->load->view('components/header_2',$data);
 		$this->load->view('pages/form');
 		$this->load->view('components/footer');
 	}
 	public function corsi($page='corsi'){
 		$data['view']='corso';
-		$data['arr']=$this->test_model->get_corsi();
 		if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
         {
 			show_404();
         }
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header_1',$data);
+		$this->load->view('components/corsi_script',$data);
 		$this->load->view('components/header_2',$data);
 		$this->load->view('pages/corsi',$data);
 		$this->load->view('components/footer');
+	}
+	public function corsi_json(){
+		$data['arr']=($this->test_model->get_corsi());
+		echo json_encode($data['arr']);
 	}
 	public function corso_new(){
 		$data['view']='corso';
@@ -108,7 +112,8 @@ class Main extends CI_Controller {
 			$this->load->library('form_validation');	
 			$data['title'] = 'Precobias';
 			$this->load->view('components/header_1',$data);
-		$this->load->view('components/header_2',$data);
+			// $this->load->view('components/test_new_script');
+			$this->load->view('components/header_2',$data);
 			$this->load->view('pages/form',$data);
 			$this->load->view('components/footer');	
 		}

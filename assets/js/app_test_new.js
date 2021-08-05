@@ -5,7 +5,7 @@ function init(){
             nome:'',
             cognome:'', 
             genere:'',
-            eta:20,
+            eta:0,
         
         },
         methods:{
