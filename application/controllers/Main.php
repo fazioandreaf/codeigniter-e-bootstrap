@@ -10,15 +10,19 @@ class Main extends CI_Controller {
 	}
 	public function index($page='home'){
 		$data['view']='test';
-		$data['arr']=($this->test_model->get_test());
 		if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
         {
 			show_404();
         }
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header',$data);
-		$this->load->view('pages/home',$data);
+		$this->load->view('pages/home');
 		$this->load->view('components/footer');
+	}
+	public function index_json(){
+		$data['arr']=($this->test_model->get_test());
+		echo json_encode($data['arr']);
+
 	}
 	public function form(){
 		$data['view']='test';
