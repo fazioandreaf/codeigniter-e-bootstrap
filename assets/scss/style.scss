@@ -1,10 +1,10 @@
 body{
-
     >.container-fluid{
         padding: 0;
     }
     header{
         margin-bottom: 3rem;
+        background-color: black;
         &.test{
             background-color: var(--bs-green);
         }
@@ -24,9 +24,9 @@ body{
                 font-weight: bolder;
             }
         }
-        background-color: black;
     }
     main{
+        margin-top:3rem;
         .error_form{
             color: var(--bs-red);
             
@@ -63,7 +63,6 @@ body{
             color: #0D6EFD;
             text-decoration: none;
         }
-        margin-top:3rem;
         form{
             .error_form{
                 display: flex;

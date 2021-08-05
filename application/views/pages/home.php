@@ -21,8 +21,8 @@
         <div v-for="elem in utenti" class="row py-2">
             <div class="col-2">
                 <span class="action">
-                    <a href="/main/utente_singolo/'.$id.'" class="text-decoration-none"><i class="fas fa-eye"></i></a>
-                    <a href="/main/edit/'.$id.'"><i class="fas fa-edit"></i></a>
+                    <a :href="'/main/utente_singolo/'+elem.id" class="text-decoration-none"><i class="fas fa-eye"></i></a>
+                    <a :href="'/main/edit/'+elem.id"><i class="fas fa-edit"></i></a>
                     <a href="#" @click="log(elem.id,elem.nome)" class="delete"><i class="fas fa-user-minus"></i></a>
                 </span>
             </div>

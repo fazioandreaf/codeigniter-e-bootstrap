@@ -16,13 +16,13 @@ class Main extends CI_Controller {
         }
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header',$data);
+		$this->load->view('components/home_script',$data);
 		$this->load->view('pages/home');
 		$this->load->view('components/footer');
 	}
 	public function index_json(){
 		$data['arr']=($this->test_model->get_test());
 		echo json_encode($data['arr']);
-
 	}
 	public function form(){
 		$data['view']='test';
@@ -30,6 +30,7 @@ class Main extends CI_Controller {
         $this->load->library('form_validation');
 		$data['title'] = '';
 		$this->load->view('components/header',$data);
+		$this->load->view('components/test_new_script');
 		$this->load->view('pages/form');
 		$this->load->view('components/footer');
 	}
