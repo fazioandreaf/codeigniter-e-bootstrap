@@ -5,6 +5,10 @@
 </h1>
     <div class="container-fluid">
         <ul>
+            <li><span class="fst-italic text-capitalize">nome: </span>{{utente.nome}} ;</li>
+            <li><span class="fst-italic text-capitalize">cognome: </span>{{utente.cognome}} ;</li>
+            <li><span class="fst-italic text-capitalize">eta: </span>{{utente.eta}} ;</li>
+            <li><span class="fst-italic text-capitalize">genere: </span>{{utente.genere}} ;</li>
             <?php 
                 // echo '<li> Nome: '.$get[0]->nome.'</li>';
                 // echo '<li> Cognome: '.$get[0]->cognome.'</li>';
