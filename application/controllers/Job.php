@@ -16,7 +16,8 @@ class Job extends CI_Controller {
 
         $data['title']='Precobias';
         $data['view']='exp';
-        $this->load->view('components/header',$data);
+        $this->load->view('components/header_1',$data);
+$this->load->view('components/header_2',$data);
         $this->load->view('pages/esperienza',$data);
         $this->load->view('components/footer');
     }

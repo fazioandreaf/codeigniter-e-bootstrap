@@ -21,7 +21,8 @@ class Test extends CI_Controller {
         };
         
         $data['title']='Precobias';
-        $this->load->view('components/header',$data);
+        $this->load->view('components/header_1',$data);
+$this->load->view('components/header_2',$data);
         $this->load->view('pages/add_corso_on_test',$data);
         $this->load->view('components/footer');
 

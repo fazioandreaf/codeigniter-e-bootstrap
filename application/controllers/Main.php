@@ -15,7 +15,8 @@ class Main extends CI_Controller {
 			show_404();
         }
 		$data['title'] = 'Precobias';
-		$this->load->view('components/header',$data);
+		$this->load->view('components/header_1',$data);
+$this->load->view('components/header_2',$data);
 		$this->load->view('components/home_script',$data);
 		$this->load->view('pages/home');
 		$this->load->view('components/footer');
@@ -29,8 +30,9 @@ class Main extends CI_Controller {
 		$this->load->helper('form');
         $this->load->library('form_validation');
 		$data['title'] = '';
-		$this->load->view('components/header',$data);
+		$this->load->view('components/header_1',$data);
 		$this->load->view('components/test_new_script');
+		$this->load->view('components/header_2',$data);
 		$this->load->view('pages/form');
 		$this->load->view('components/footer');
 	}
@@ -42,7 +44,8 @@ class Main extends CI_Controller {
 			show_404();
         }
 		$data['title'] = 'Precobias';
-		$this->load->view('components/header',$data);
+		$this->load->view('components/header_1',$data);
+$this->load->view('components/header_2',$data);
 		$this->load->view('pages/corsi',$data);
 		$this->load->view('components/footer');
 	}
@@ -51,7 +54,8 @@ class Main extends CI_Controller {
 		$this->load->helper('form');
         $this->load->library('form_validation');
 		$data['title'] = 'Precobias';
-		$this->load->view('components/header',$data);
+		$this->load->view('components/header_1',$data);
+$this->load->view('components/header_2',$data);
 		$this->load->view('pages/corso_new');
 		$this->load->view('components/footer');
 	}
@@ -65,7 +69,8 @@ class Main extends CI_Controller {
 		if(count($data['get_exp'])==0)
 			$data['get_exp']=$this->test_model->get_test($get);		
 		$data['title'] = 'Precobias';
-		$this->load->view('components/header',$data);
+		$this->load->view('components/header_1',$data);
+$this->load->view('components/header_2',$data);
 		$this->load->view('pages/utente_singolo');
 		$this->load->view('components/footer');		
 	}
@@ -75,7 +80,8 @@ class Main extends CI_Controller {
 		if(count($data['get'])==0)
 		$data['get']=$this->test_model->get_corsi($get);
 		$data['title'] = 'Precobias';
-		$this->load->view('components/header',$data);
+		$this->load->view('components/header_1',$data);
+$this->load->view('components/header_2',$data);
 		$this->load->view('pages/corso_singolo',$data);
 		$this->load->view('components/footer');		
 	}
@@ -91,7 +97,8 @@ class Main extends CI_Controller {
 			$this->load->helper('form');
 			$this->load->library('form_validation');	
 			$data['title'] = 'Precobias';
-			$this->load->view('components/header',$data);
+			$this->load->view('components/header_1',$data);
+$this->load->view('components/header_2',$data);
 			$this->load->view('pages/form',$data);
 			$this->load->view('components/footer');	
 		}
