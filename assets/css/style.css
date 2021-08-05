@@ -1,9 +1,3 @@
-body .exp {
-  background-color: var(--bs-purple);
-}
-body .exp:hover {
-  background-color: var(--bs-indigo);
-}
 body > .container-fluid {
   padding: 0;
 }
@@ -16,6 +10,10 @@ body header.test {
 }
 body header.corso {
   background-color: var(--bs-gray);
+  color: black;
+}
+body header.exp {
+  background-color: var(--bs-purple);
   color: black;
 }
 body header .nav-link {
@@ -48,6 +46,14 @@ body main .corso:hover {
   background-color: #15171a;
   color: white;
 }
+body main .exp {
+  background-color: var(--bs-purple);
+  color: white;
+  transition: all ease-in-out 0.2s;
+}
+body main .exp:hover {
+  background-color: var(--bs-indigo);
+}
 body main textarea {
   resize: none;
 }
@@ -67,9 +73,6 @@ body main form .error_form {
 }
 body main form .error_form span {
   padding: 0.6rem;
-}
-body main form .exp {
-  color: white;
 }
 body main form input[type=text], body main form input[type=number], body main form select {
   width: 100%;

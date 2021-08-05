@@ -31,7 +31,9 @@
                     if(!empty($get[0]->nome)){
                         foreach($get as $i){
                             echo '<div class="row pt-2 pb-2">';
-                            echo '<div class="col-4"><a href="/main/utente_singolo/'.$i->id.'" class="text-decoration-none"><i class="fas fa-eye"></i></a>';
+                            echo '<div class="col-4"><span class="action"><a href="/main/utente_singolo/'.$i->id.'" class="text-decoration-none"><i class="fas fa-eye"></i></a>';
+                            echo '<a href="/corso/delete_test_on_corso/'.$i->id_test.'/'.$i->id_corsi.'" class="text-decoration-none ms-2"><i class="fas fa-trash"></i></a>';
+                            echo '</span>';
                             echo '<span class="ms-3">'.$i->nome.'</span></div>';
                             echo '<div class="col-3">'.$i->cognome.'</div>';
                             echo '<div class="col">'.$i->eta.'</div>';

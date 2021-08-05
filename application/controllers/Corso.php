@@ -152,4 +152,10 @@ class Corso extends CI_Controller {
         }         
 
     }
+	public function delete_test_on_corso($id_test="",$id_corsi=""){
+		$this->db->where('id_test', $id_test);
+		$this->db->where('id_corsi', $id_corsi);
+		$this->db->delete('test_corsi');
+		redirect('main/corso_singolo/'.$id_corsi);
+	}        
 }
