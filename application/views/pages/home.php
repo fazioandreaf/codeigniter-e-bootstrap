@@ -20,7 +20,7 @@
             <div class="fw-bold col-1">Etá</div>
             <div class="fw-bold col-3">Genere</div>
         </div>
-        <div v-for="elem in utenti" v-if="search=='' || elem.nome==search"  class="row py-2">
+        <div v-for="elem in utenti" v-if="search=='' || elem.nome.toUpperCase().includes(search.toUpperCase())"  class="row py-2">
             <div class="col-2">
                 <span class="action">
                     <a :href="'/main/utente_singolo/'+elem.id" class="text-decoration-none"><i class="fas fa-eye"></i></a>
