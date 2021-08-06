@@ -29,5 +29,21 @@ class Api_model extends CI_Model {
                         ->get();
                 return $query->result();                
         }
+        public function corsi_singolo_api($id_corsi){
+                $query= $this->db->select('*')
+                        ->from('corsi')
+                        ->join('test_corsi','test_corsi.id_corsi=corsi.id')
+                        ->join('test','test.id=test_corsi.id_test')
+                        ->where('corsi.id',$id_corsi)
+                        ->get();
+                if(count($query->result())!=0)
+                        return $query->result();
+                        else                
+                        $query=$this->db->select('*')
+                                ->from('corsi')
+                                ->where('id',$id_corsi)
+                                ->get();
+                        return $query->result();
+        }
         
 }

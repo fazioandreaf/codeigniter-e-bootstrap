@@ -90,14 +90,16 @@ class Main extends CI_Controller {
 	}
 	public function corso_singolo($get=''){
 		$data['view']='corso';
-		$data['get']=$this->test_model->singolo_corso($get);
-		if(count($data['get'])==0)
-		$data['get']=$this->test_model->get_corsi($get);
 		$data['title'] = 'Precobias';
 		$this->load->view('components/header_1',$data);
+		$this->load->view('components/corso_singolo_script',$data);
 		$this->load->view('components/header_2',$data);
 		$this->load->view('pages/corso_singolo',$data);
 		$this->load->view('components/footer');		
+	}
+	public function corso_singolo_json(){
+		$data['data']=$this->api_model->corsi_singolo_api($_GET['id_corsi']);
+		echo json_encode($data['data']);		
 	}
 	public function edit($id=''){
 		$data['view']='test';
