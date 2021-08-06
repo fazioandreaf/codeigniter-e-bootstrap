@@ -17,7 +17,7 @@ function init(){
             // const {nome,eta,genere,cognome,id}=r.data[0];
             //     this.utente={nome,eta,genere,cognome,id}
 
-            axios.post('/main/utente_singolo_corsi_json?id='+id
+            axios.get('/main/utente_singolo_corsi_json?id='+id
             )
                 .then(r=>{
                     const {nome,eta,genere,cognome,id_test}=r.data[0];

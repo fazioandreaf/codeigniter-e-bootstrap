@@ -23,7 +23,8 @@ class Form extends CI_Controller {
             array('required'=>'Devi inserire il genere'));
         if ($this->form_validation->run() === FALSE)
         {         
-            $this->load->view('components/header', $data);
+            $this->load->view('components/header_1', $data);
+            $this->load->view('components/header_2', $data);
             $this->load->view('pages/form');
             $this->load->view('components/footer');
     

@@ -95,6 +95,9 @@ body main .t-cust, body main .t-cust table {
 body main .t-cust tr:nth-child(2n), body main .t-cust table tr:nth-child(2n) {
   background: #f9f9f9;
 }
+body main .t-cust tr:nth-child(2n) a:hover, body main .t-cust table tr:nth-child(2n) a:hover {
+  background: white;
+}
 body main .t-cust > div.utente_singolo {
   width: 300px;
 }
@@ -116,13 +119,12 @@ body main .t-cust .action a:first-of-type {
 body main .t-cust .action a:last-of-type {
   color: var(--bs-danger);
 }
-body main .t-cust a {
+body main .t-cust .action, body main .t-cust a {
   transition: all ease-in-out 0.2s;
 }
-body main .t-cust a:hover {
+body main .t-cust .action:hover, body main .t-cust a:hover {
   padding: 0.5rem;
   border-radius: 50%;
-  background-color: #f2f2f2;
 }
 body main .utenti_iscritti a {
   color: var(--bs-green);

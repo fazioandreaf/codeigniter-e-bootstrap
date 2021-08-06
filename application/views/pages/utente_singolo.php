@@ -47,8 +47,15 @@
             <table class="t-cust" v-if="this.corsi.length>0">
                 <tr> <th>Funzioni</th><th>Titolo</th><th>Descrizione</th></tr>
                 <tr v-for="elem in corsi" class=" py-2">
-                    <td class="text-center"><a :href="'/test/delete_corsi_on_test/'+utente.id_test+'/'+elem.id_corsi" style="color:var(--bs-danger)" class="me-2">  <i class="fas fa-trash"></i></a></td>
-                    <td>{{elem.titolo}}</td><td>{{elem.descrizione}}</td></tr>
+                    <td class="text-center">
+                        <!-- <a :href="'/test/delete_corsi_on_test/'+utente.id_test+'/'+elem.id_corsi" style="color:var(--bs-danger)" class="me-2">  --><a href="#">
+                            
+                        </a>
+                         <i class="fas fa-trash"></i>
+                        <!-- </a> -->
+                    </td>
+                    <td>{{elem.titolo}}</td>
+                    <td>{{elem.descrizione}}</td></tr>
             </table>
 
             <h2>Esperienze lavorative

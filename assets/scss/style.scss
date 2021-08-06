@@ -100,6 +100,9 @@ body{
                 width: 100%;
                 tr:nth-child(2n){
                     background: #f9f9f9;
+                    a:hover{
+                        background: white;
+                    }
 
                 }
             }
@@ -127,13 +130,12 @@ body{
                     color: var(--bs-danger);
                 }
             }
-            a{
+           .action,a{
+                &:hover{
+                    padding: 0.5rem;
+                    border-radius: 50%;
+                }  
                 transition: all ease-in-out 0.2s;
-              &:hover{
-                  padding: 0.5rem;
-                  border-radius: 50%;
-                  background-color: rgb(242, 242, 242);
-              }  
             }
         }
         .utenti_iscritti{

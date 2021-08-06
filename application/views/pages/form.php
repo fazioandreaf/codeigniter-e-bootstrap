@@ -7,7 +7,9 @@
         if(!empty($get))
             echo form_open('form/edit/'.$get[0]->id.'','method="post" class="d-flex flex-column align-items-center justify-content-evenly '); 
             else
-                echo form_open('form/create','class="d-flex flex-column align-items-center justify-content-evenly " style="min-height:400px"'); 
+                echo form_open('#:void(0);'
+                    // 'form/create'
+                    ,'class="d-flex flex-column align-items-center justify-content-evenly " style="min-height:400px"'); 
     ?>
     <div class="form-floating mt-3 position-relative">   
         <div class="error_form fw-bolder">
@@ -105,7 +107,7 @@
         // }
     
     if(!empty($get)){
-        echo '<input  class="mt-4 p-2 ';
+        echo '<input style="margin-bottom:100px" class="mt-4 p-2 ';
         if(!empty($view)){
             if($view=='test') echo ' test"';
             elseif($view=='corso') echo ' corso"';}
@@ -115,7 +117,8 @@
             if(!empty($view)){
                 if($view=='test') echo ' test"';
                 elseif($view=='corso') echo ' corso"';}
-            echo 'type="submit" name="submit" value="Crea un nuovo utente">';
+            echo 'type="submit" name="submit" value="Crea un nuovo utente"  :disabled="form_toggle"
+            @click="post()">';
     }
     ?>
     <?php echo form_close()?>

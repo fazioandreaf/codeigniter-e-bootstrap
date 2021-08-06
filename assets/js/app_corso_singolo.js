@@ -20,9 +20,10 @@ function init(){
                     this.utenti.push({id_test,nome,cognome,eta,genere});                    
                 });
             })
-            .catch(e=>console.log(e))    
+            .catch(e=>console.log(e)) 
         },
         methods:{
+            
         }
     })
 };

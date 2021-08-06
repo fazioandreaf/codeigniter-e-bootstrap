@@ -21,19 +21,19 @@
                     <div class="col"><span class="fw-bold">Etá</span></div>
                     <div class="col"><span class="fw-bold">Genere</span></div>
                 </div> -->
-            <table class="t-cust" v-if="this.utenti.length>0">
-                <tr><th class="text-center">Funzioni</th> <th>Nome</th><th>Cognome</th><th>Etá</th><th>Genere</th></tr>
-                <tr v-for="elem in utenti" class=" py-2">
+            <table class="t-cust" v-if="utenti.nome!=undefined">
+                <tr class="py-4 my-4"><th class="text-center">Funzioni</th> <th>Nome</th><th>Cognome</th><th>Etá</th><th>Genere</th></tr>
+                <tr v-for="elem in utenti" class="my-4 py-4">
                     <td class="text-center">
                         <span class="action">
                             <a :href="'/main/utente_singolo/'+elem.id_test" class="text-decoration-none"><i class="fas fa-eye"></i></a>
                             <a :href="'/corso/delete_test_on_corso/'+elem.id_test+'/'+corso.id_corsi" class="text-decoration-none ms-2"><i class="fas fa-trash"></i></a>
                         </span>
                     </td>
-                    <td>{{elem.nome}}</td>
-                    <td>{{elem.cognome}}</td>
-                    <td>{{elem.eta}}</td>
-                    <td>{{elem.genere}}</td>
+                    <td class="my-4 py-2">{{elem.nome}}</td>
+                    <td class="my-4 py-2">{{elem.cognome}}</td>
+                    <td class="my-4 py-2">{{elem.eta}}</td>
+                    <td class="my-4 py-2">{{elem.genere}}</td>
                 </tr>
             </table>
                 <?php 
