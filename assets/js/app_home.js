@@ -16,11 +16,14 @@ function init(){
             id:0,
             modal:false,
             nome:'',
+            search:'',
         },
         mounted(){
             axios.post('/main/index_json')
             .then(r=>{
-                this.utenti=r.data;
+                console.log(r.data);
+                this.utenti=r.data.sort(this.ordinamento);
+                
             })
             .catch(e=>console.log(e))    
         },
@@ -31,6 +34,13 @@ function init(){
                 console.log(this.modal);
                 this.nome=nome;
             },
+            ordinamento(a,b){
+                if (a.nome < b.nome)
+                return -1;
+              if (a.nome > b.nome)
+                return 1;
+              return 0;
+            }
 
         }
     })

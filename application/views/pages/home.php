@@ -10,6 +10,8 @@
        Inserimento nuovo  utente
     </button>
     </a>
+    <input v-model="search" type="text" name="search" id="">
+    <span>{{search}}</span>
    <div class="pt-4 pb-5 mb-5 container-fluid t-cust">
         <div class="row py-2">
             <div class="fw-bold col-2">Funzioni</div>
@@ -18,7 +20,7 @@
             <div class="fw-bold col-1">Etá</div>
             <div class="fw-bold col-3">Genere</div>
         </div>
-        <div v-for="elem in utenti" class="row py-2">
+        <div v-for="elem in utenti" v-if="search=='' || elem.nome==search"  class="row py-2">
             <div class="col-2">
                 <span class="action">
                     <a :href="'/main/utente_singolo/'+elem.id" class="text-decoration-none"><i class="fas fa-eye"></i></a>

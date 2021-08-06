@@ -18,18 +18,18 @@
                 echo validation_errors('<span>', '</span>'); ?>
         </div>
         <input v-model="nome" type="text" class="form-control" name="nome" value="<?php
-            if(!empty($_SESSION['item'])){      
-                if(!empty($get) && !strpos($_SESSION['item'],' Name') )
+                if(!empty($_SESSION['item'])){      
+                    if(!empty($get) && !strpos($_SESSION['item'],' Name') )
+                        echo set_value('nome',$get[0]->nome);
+                        else
+                            echo set_value('nome'); 
+                }else{
+                    if(!empty($get) )
                     echo set_value('nome',$get[0]->nome);
                     else
-                        echo set_value('nome'); 
-            }else{
-                if(!empty($get) )
-                echo set_value('nome',$get[0]->nome);
-                else
-                echo set_value('nome'); 
-            }
-        ?>" >
+                    echo set_value('nome'); 
+                }
+            ?>" >
         <label for="nome" class="floatingTextarea2">Nome</label> 
         <span v-if="nome==''" class="fst-italic">Inserire un nome valido</span>
 

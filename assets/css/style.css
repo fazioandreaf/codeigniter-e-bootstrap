@@ -27,6 +27,9 @@ body header .nav-link:hover {
 body main {
   margin-top: 3rem;
 }
+body main #app {
+  margin-bottom: 100px;
+}
 body main .error_form {
   color: var(--bs-red);
 }
@@ -144,6 +147,9 @@ body footer.test {
 body footer.corso {
   background-color: var(--bs-gray);
   color: white;
+}
+body footer.exp {
+  background-color: var(--bs-purple);
 }
 
 /*# sourceMappingURL=style.css.map */

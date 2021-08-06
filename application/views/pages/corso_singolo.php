@@ -27,7 +27,7 @@
                     <td class="text-center">
                         <span class="action">
                             <a :href="'/main/utente_singolo/'+elem.id_test" class="text-decoration-none"><i class="fas fa-eye"></i></a>
-                            <a href="/corso/delete_test_on_corso/'.$i->id_test.'/'.$i->id_corsi.'" class="text-decoration-none ms-2"><i class="fas fa-trash"></i></a>
+                            <a :href="'/corso/delete_test_on_corso/'+elem.id_test+'/'+corso.id_corsi" class="text-decoration-none ms-2"><i class="fas fa-trash"></i></a>
                         </span>
                     </td>
                     <td>{{elem.nome}}</td>

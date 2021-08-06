@@ -26,6 +26,9 @@ body{
         }
     }
     main{
+        #app{
+            margin-bottom: 100px;
+        }
         margin-top:3rem;
         .error_form{
             color: var(--bs-red);
@@ -159,6 +162,11 @@ body{
             background-color: var(--bs-gray);
             color: white;
         }     
+        &.exp{
+            background-color: var(--bs-purple);
+            // color: black;
+        }          
+
 
     }
 }
