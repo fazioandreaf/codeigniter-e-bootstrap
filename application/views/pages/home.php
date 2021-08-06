@@ -10,12 +10,25 @@
        Inserimento nuovo  utente
     </button>
     </a>
-    <input v-model="search" type="text" name="search" id="">
-    <span>{{search}}</span>
+    <div class="form-floating my-3">
+        <input v-model="search" type="text" name="search" class="form-control" id="" style="width:auto">
+        <label class="floatingTextarea2">Ricerca</label>
+    </div>
    <div class="pt-4 pb-5 mb-5 container-fluid t-cust">
         <div class="row py-2">
             <div class="fw-bold col-2">Funzioni</div>
-            <div class="fw-bold col-3">Nome</div>
+            <div class="fw-bold col-3" 
+            @click="f_order()"
+            @mouseover="name_toggle=!name_toggle" 
+            @mouseleave="name_toggle=!name_toggle" 
+            >
+                Nome 
+                <span v-if="name_toggle">
+                    <i v-if="!order_toggle" class="fas fa-chevron-down"></i>
+                    <i v-else class="fas fa-chevron-up"></i>
+                </span>
+                <div v-else></div>
+            </div>
             <div class="fw-bold col-3">Cognome</div>
             <div class="fw-bold col-1">Etá</div>
             <div class="fw-bold col-3">Genere</div>
