@@ -32,8 +32,8 @@ function init(){
             .then(r=>{
                 if(r.data[0].job_title!=undefined){
                     r.data.forEach(elem => {
-                        const {job_title,job_description}=elem;
-                        this.esperienze.push({job_title,job_description});
+                        const {job_title,job_description,id}=elem;
+                        this.esperienze.push({job_title,job_description,id});
                     });
                 };
             })

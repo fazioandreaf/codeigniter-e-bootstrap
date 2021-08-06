@@ -4,7 +4,6 @@ function init(){
         data:{
             corsi:[],
             id:0,
-            modal:false,
             nome:'',
         },
         mounted(){
@@ -15,13 +14,6 @@ function init(){
             .catch(e=>console.log(e))    
         },
         methods:{
-            log(id,nome){
-                this.id=id;
-                this.modal=!this.modal;
-                console.log(this.modal);
-                this.nome=nome;
-            },
-
         }
     })
 };

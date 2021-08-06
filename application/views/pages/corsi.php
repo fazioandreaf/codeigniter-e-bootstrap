@@ -8,8 +8,12 @@
 
 
     <table class="t-cust" v-if="this.corsi.length>0">
-        <tr> <th>Titolo</th><th>Descrizione</th></tr>
-        <tr v-for="elem in corsi" class=" py-2"><td>{{elem.titolo}}</td><td>{{elem.descrizione}}</td></tr>
+        <tr><th></th><th>Titolo</th><th>Descrizione</th></tr>
+        <tr v-for="elem in corsi" class=" py-3">
+            <td class="text-center p-2"><a :href="'/main/corso_singolo/'+elem.id" class="text-decoration-none"><i class="fas fa-eye"></i></a></td>
+            <td>{{elem.titolo}}</td>
+            <td>{{elem.descrizione}}</td>
+        </tr>
     </table>
 
    <!-- <div class="pt-4 pb-4 container-fluid t-cust">
