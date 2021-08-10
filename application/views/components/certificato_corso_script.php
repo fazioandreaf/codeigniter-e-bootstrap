@@ -3,3 +3,4 @@
 <!-- vue 2.0 -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2.x"></script>
 <script src="/assets/js/app_certificato_corso.js" defer></script>
+

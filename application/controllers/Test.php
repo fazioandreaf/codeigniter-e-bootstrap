@@ -1,8 +1,18 @@
 <?php
 require_once 'dompdf/autoload.inc.php';
 
+use Dompdf\Css\Style;
+use Dompdf\Frame\FrameList;
+
+
 use Dompdf\Dompdf;
 use Dompdf\Options;
+// use Dompdf\JavascriptEmbedder;
+// use Dompdf\Sabberworm;
+// use Dompdf\Sabberworm;
+// use Dompdf\Sabberworm;
+// use Dompdf\Sabberworm;
+// use Dompdf\Sabberworm;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Test extends CI_Controller {
@@ -80,14 +90,16 @@ class Test extends CI_Controller {
 		$data['title']='Precobias';
 		$data['certificato_url']='/21/6';
 
-		// $data['test']=$this->db->where('id', $id_test)->get();
+		$data['test']=$this->api_model->test_singolo($id_test);
+		$data['corso']=$this->api_model->corso_singolo($id_corsi);
 		
-		// $data['corso']=$this->db->where('id', $id_corsi)->get();
 		
         $this->load->view('components/header_1',$data);
 		$this->load->view('components/certificato_corso_script',$data);
 		
+		$this->load->view('components/style_certificato');
 		$this->load->view('components/header_2',$data);
+		$this->load->view('pages/certificato_corso_download',$data);
         $this->load->view('pages/certificato_corso',$data);
         $this->load->view('components/footer');
 
@@ -96,17 +108,42 @@ class Test extends CI_Controller {
 		$data['data']=$this->api_model->test_singolo($_GET['id']);
 		echo json_encode($data['data']);
 	}
+	public function certificato_corso_download($id_test='',$id_corsi=''){
+		$data['test']=$this->api_model->test_singolo($id_test);
+		$data['corso']=$this->api_model->corso_singolo($id_corsi);
+		$this->load->view('components/style_certificato');
+		$this->load->view('pages/certificato_corso_download',$data);
+
+		
+
+
+	}
 	public function dompdf($id_test='',$id_corso=''){
 
 		$dompdf = new Dompdf();
 
-		$html = file_get_contents('http://localhost/test/certificato_corso/'.$id_test.''.$id_corso);
-		$options = $dompdf->getOptions();
-		$options->setIsHtml5ParserEnabled(true);
-		$dompdf->setOptions($options);
+		$html = file_get_contents('http://localhost/test/prova');
+		// $options = $dompdf->getOptions();
+		// $options->setIsHtml5ParserEnabled(true);
+		// $dompdf->setOptions($options);
+
+        // $dom = new DOMDocument();
+        // $dom->load('http://localhost/test/certificato_corso/'.$id_test.'/'.$id_corso);
+		// $dompdf->loadDOM($dom);
+
+		// echo $html;
 		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'landscape');
 		$dompdf->render();
-		$dompdf->stream();
+
+		$dompdf->stream('Certificato di '.$id_test.' per il corso '.$id_corso,[0,0]);
+
+	}
+	public function prova(){
+		$data['test']=$this->api_model->test_singolo(21);
+		$data['corso']=$this->api_model->corso_singolo(6);
+		// $this->load->view('components/style_certificato');
+		$this->load->view('pages/certificato_corso_download',$data);
 
 	}
 }
