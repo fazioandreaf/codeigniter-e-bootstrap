@@ -1,7 +1,8 @@
 <div class="container-fluid">
 
-    <h1><?php 
-        echo $table[0]->nome.' '.$table[0]->cognome;
+    <h1>
+		<?php 
+        // echo $table[0]->nome.' '.$table[0]->cognome;
         ?>
         </h1>
     <h2> Elenco Corsi</h2>

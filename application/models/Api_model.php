@@ -45,5 +45,20 @@ class Api_model extends CI_Model {
                                 ->get();
                         return $query->result();
         }
+	public function test_singolo($id_test){
+		$query= $this->db->select('*')
+                        ->from('test')
+                        ->where('id',$id_test)
+                        ->get();
+		return $query->result();
+	}
+	public function corso_singolo($id_corso){
+		$query= $this->db->select('*')
+                        ->from('corsi')
+                        ->where('id',$id_corso)
+                        ->get();
+		return $query->result();
+	}
+        	
         
 }

@@ -4,6 +4,7 @@ class Test extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('test_model');
+		$this->load->model('api_model');
 		$this->load->helper('url_helper');		
 	}        
     public function test_on_corso($id=""){
@@ -22,7 +23,7 @@ class Test extends CI_Controller {
         
         $data['title']='Precobias';
         $this->load->view('components/header_1',$data);
-$this->load->view('components/header_2',$data);
+		$this->load->view('components/header_2',$data);
         $this->load->view('pages/add_corso_on_test',$data);
         $this->load->view('components/footer');
 
@@ -70,4 +71,23 @@ $this->load->view('components/header_2',$data);
 		$this->db->delete('test_corsi');
 		redirect('main/utente_singolo/'.$id_test);
 	}    
+	public function certificato_corso ($id_test="",$id_corsi=""){
+		$data['title']='Precobias';
+
+		// $data['test']=$this->db->where('id', $id_test)->get();
+		
+		// $data['corso']=$this->db->where('id', $id_corsi)->get();
+		
+        $this->load->view('components/header_1',$data);
+		$this->load->view('components/certificato_corso_script',$data);
+		
+		$this->load->view('components/header_2',$data);
+        $this->load->view('pages/certificato_corso',$data);
+        $this->load->view('components/footer');
+
+	}
+	public function test_singolo_json() {
+		$data['data']=$this->api_model->test_singolo($_GET['id']);
+		echo json_encode($data['data']);
+	}
 }

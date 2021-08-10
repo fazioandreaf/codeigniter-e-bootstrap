@@ -6,6 +6,8 @@ function init(){
             utente:{},
             corsi:[],
             esperienze:[],
+			test_corso_toggle:true,
+			switch_test_corso :true,
         
         },
         mounted(){
@@ -15,6 +17,7 @@ function init(){
             axios.get('/main/utente_singolo_corsi_json?id='+id
             )
                 .then(r=>{
+					console.log(r.data);
                     const {nome,eta,genere,cognome,id_test}=r.data[0];
                     this.utente={nome,eta,genere,cognome,id_test} ;
                     r.data.forEach(elem => {
@@ -22,7 +25,7 @@ function init(){
                         this.corsi.push({titolo,descrizione,id_corsi});
                     });
                 })
-                .catch(e=>console.log(e))
+                .catch(e=>console.log(e));
             axios.post('/main/utente_singolo_exp_json?id='+id)
             .then(r=>{
                 if(r.data[0].job_title!=undefined){

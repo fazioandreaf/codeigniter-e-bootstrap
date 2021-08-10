@@ -4,6 +4,7 @@ class Corso extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('test_model');
+		$this->load->model('api_model');
 		$this->load->helper('url_helper');		
 	}    
     
@@ -112,7 +113,7 @@ $this->load->view('components/header_2',$data);
         
         $data['title']='Precobias';
         $this->load->view('components/header_1',$data);
-$this->load->view('components/header_2',$data);
+		$this->load->view('components/header_2',$data);
         $this->load->view('pages/add_corso_on_test',$data);
         $this->load->view('components/footer');
 
@@ -160,4 +161,9 @@ $this->load->view('components/header_2',$data);
 		$this->db->delete('test_corsi');
 		redirect('main/corso_singolo/'.$id_corsi);
 	}        
+	public function corso_singolo_json() {
+		$data['data']=$this->api_model->corso_singolo($_GET['id']);
+		echo json_encode($data['data']);
+	}
+
 }

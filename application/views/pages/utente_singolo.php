@@ -13,7 +13,7 @@
         <div>
             <h2>Corsi iscritti</h2>
             
-            <a :href="'/test/test_on_corso/'+utente.id_test">
+            <a :href="'/test/test_on_corso/'+utente.id">
                 <button type="button" style="border:none" class="btn btn-primary corso">
                     Inserimento nuovo  corso
                 </button>                    
@@ -23,10 +23,13 @@
                 <tr> <th>Funzioni</th><th>Titolo</th><th>Descrizione</th></tr>
                 <tr v-for="elem in corsi" class=" py-2">
                     <td class="text-center">
-                        <!-- <a :href="'/test/delete_corsi_on_test/'+utente.id_test+'/'+elem.id_corsi" style="color:var(--bs-danger)" class="me-2">  --><a href="#">
+                        <a :href="'/test/delete_corsi_on_test/'+utente.id_test+'/'+elem.id_corsi" style="color:var(--bs-danger)" class="me-2"> 
                             
+							<i class="fas fa-trash"></i>
                         </a>
-                         <i class="fas fa-trash"></i>
+						<a :href="'/test/certificato_corso/'+utente.id_test+'/'+elem.id_corsi">
+						<i class="fas fa-file"></i>
+						</a>
                         <!-- </a> -->
                     </td>
                     <td>{{elem.titolo}}</td>
