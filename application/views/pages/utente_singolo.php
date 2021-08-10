@@ -2,20 +2,13 @@
     <h1>
         Utente singolo
 
-</h1>
+    </h1>
     <div class="container-fluid">
         <ul>
             <li><span class="fst-italic text-capitalize">nome: </span>{{utente.nome}} ;</li>
             <li><span class="fst-italic text-capitalize">cognome: </span>{{utente.cognome}} ;</li>
             <li><span class="fst-italic text-capitalize">eta: </span>{{utente.eta}} ;</li>
             <li><span class="fst-italic text-capitalize">genere: </span>{{utente.genere}} ;</li>
-            <?php 
-                // echo '<li> Nome: '.$get[0]->nome.'</li>';
-                // echo '<li> Cognome: '.$get[0]->cognome.'</li>';
-                // echo '<li> Etá: '.$get[0]->eta.'</li>';
-                // echo '<li> Genere: '.$get[0]->genere.'</li>';
-            
-            ?>
         </ul>
         <div>
             <h2>Corsi iscritti</h2>
@@ -23,26 +16,8 @@
             <a :href="'/test/test_on_corso/'+utente.id_test">
                 <button type="button" style="border:none" class="btn btn-primary corso">
                     Inserimento nuovo  corso
-                </button>
-                    
+                </button>                    
             </a>    
-            <!-- <div class="pt-4 pb-5 mb-5 t-cust d-flex align-items-center flex-column " >
-                <div class="row py-2 utente_singolo">
-                    <div class="col-4"><span class="fw-bolder text-center">Fuzioni</span></div> 
-                    <div class="col-8"><span class="fw-bold">Nome del corso</span></div> 
-                </div>-->
-                <?php                
-                    // if(!empty($get[0]->titolo)){
-                    //     foreach($get as $i){
-                    //         echo '<div class="row py-2 utente_singolo"><div class="col-4 text-center">';
-                    //         echo '<a href="/test/delete_corsi_on_test/'.$i->id_test.'/'.$i->id_corsi.'" style="color:var(--bs-danger)" class="me-2">  <i class="fas fa-trash"></i></a>';
-                    //         echo'</div>';
-                    //         echo '<div class="col-8"><span >';
-                    //         echo $i->titolo;
-                    //         echo '</span></div></div>';
-                    //     }
-                    // }else echo 'Non sei iscritto a nessuno corso';
-                ?>
             </div> 
             <table class="t-cust" v-if="this.corsi.length>0">
                 <tr> <th>Funzioni</th><th>Titolo</th><th>Descrizione</th></tr>

@@ -2,13 +2,7 @@
    <h1 v-if="test_corso_toggle" class="border-bottom border-dark pt-4 pb-4">Corsisti</h1>
    <h1 v-else class="border-bottom border-dark pt-4 pb-4">Corsi</h1>
    <a href="/main/form">
-   <button type="button" :class="colore" class="btn
-        <?php 
-        //    if(!empty($view)){
-        //     if($view=='test') echo 'test';
-        //     elseif($view=='corso') echo 'corso';}
-        ?>">
-
+   <button type="button" :class="colore" class="btn">
        Inserimento nuovo 
        <span v-if="test_corso_toggle">utente</span> 
        <span v-else>corso</span> 
@@ -18,38 +12,6 @@
         <input v-model="search" type="text" name="search" class="form-control" id="" style="width:auto">
         <label class="floatingTextarea2">Ricerca</label>
     </div>
-    <!-- <div v-if="test_corso_toggle" class="pt-4 pb-5 mb-5 container-fluid t-cust">
-            <div class="row py-2">
-                <div class="fw-bold col-2">Funzioni</div>
-                <div class="fw-bold col-3" 
-                @click="f_order()"
-                @mouseover="name_toggle=!name_toggle" 
-                @mouseleave="name_toggle=!name_toggle" 
-                >
-                    Nome 
-                    <span v-if="name_toggle">
-                        <i v-if="!order_toggle" class="fas fa-chevron-down"></i>
-                        <i v-else class="fas fa-chevron-up"></i>
-                    </span>
-                    <div v-else></div>
-                </div>
-                <div class="fw-bold col-3">Cognome</div>
-                <div class="fw-bold col-1">Etá</div>
-                <div class="fw-bold col-3">Genere</div>
-            </div>
-            <div v-for="elem in utenti" v-if="(search=='' || elem.nome.toUpperCase().includes(search.toUpperCase()))&& !delete_utente.includes(elem.id)"  class="row py-2">
-                <div class="col-2">
-                    <span class="action">
-                        <a :href="'/main/utente_singolo/'+elem.id" class="text-decoration-none"><i class="fas fa-eye"></i></a>
-                        <a :href="'/main/edit/'+elem.id"><i class="fas fa-edit"></i></a>
-                        <a href="#" @click="log(elem.id,elem.nome)" class="delete"><i class="fas fa-user-minus"></i></a>
-                    </span>
-                </div>
-                <div class="col-3"><span>{{elem.nome}}</span></div>
-                <div class="col-3"><span>{{elem.cognome}}</span></div>
-                <div class="col-1"><span>{{elem.eta}}</span></div>
-                <div class="col-3"><span>{{elem.genere}}</span></div>
-            </div> -->
             <div v-if="test_corso_toggle">
                 <table class="t-cust" >
                     <tr><th class="text-center">Funzioni</th>
@@ -76,30 +38,7 @@
                     </tr>
                 </table>
             </div>
-                <?php 
-                    // foreach($arr as $i){
-                    //     echo '<div class="row py-2">';
-                    //     $id=$i->id;
-                    //     echo '<div class="col-2">
-                    //     <span class="action">
-                    //     <a href="/main/utente_singolo/'.$id.'" class="text-decoration-none"><i class="fas fa-eye"></i></a>
-                    //     <a href="/main/edit/'.$id.'"><i class="fas fa-edit"></i></a>
-                    //     <a href="#" data-id="'.$id.'" class="delete"><i class="fas fa-user-minus"></i></a></span>
-                    //     </div>';
-                    //     foreach($i as $key=>$value){
-                    //         if($key=='nome')
-                    //             echo '<div class="col-3"><span>'.$value.'</span></div>';
-                    //         if($key=='cognome')
-                    //             echo '<div class="col-3"><span>'.$value.'</span></div>';
-                    //         if($key=='eta')
-                    //             echo '<div class="col-1"><span>'.$value.'</span></div>';
-                    //         if($key=='genere')
-                    //             echo '<div class="col d-flex justify-content-between"><span>'.$value.'</span></div>';
-                    //     }       
-                    //     echo '</div>';
-                    // }
                 ?>
-    <!-- </div> -->
     <div v-else>
         <table class="t-cust" >
             <tr><th>Funzioni</th><th>Titolo</th><th>Descrizione</th></tr>

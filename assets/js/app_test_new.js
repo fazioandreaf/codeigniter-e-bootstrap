@@ -2,6 +2,7 @@ function init(){
     new Vue({
         el:"#app",
         data:{
+            colore:'test',
             nome:'',
             cognome:'', 
             genere:'',

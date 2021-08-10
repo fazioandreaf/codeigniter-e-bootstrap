@@ -2,6 +2,7 @@ function init(){
     new Vue({
         el:"#app",
         data:{
+            colore:'test',
             utente:{},
             corsi:[],
             esperienze:[],
@@ -11,12 +12,6 @@ function init(){
             let url=window.location.pathname;
             let index=url.indexOf('/',url.length-5)
             let id=url.slice(index+1);
-            // // codice di antonio
-            // const r= await axios.post('/main/utente_singolo_corsi_json?id='+id
-            // )
-            // const {nome,eta,genere,cognome,id}=r.data[0];
-            //     this.utente={nome,eta,genere,cognome,id}
-
             axios.get('/main/utente_singolo_corsi_json?id='+id
             )
                 .then(r=>{

@@ -2,6 +2,7 @@ function init(){
     new Vue({
         el:"#app",
         data:{
+            colore:'corso',
             utenti:[],
             corso:{},
             id:0,
