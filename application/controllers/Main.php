@@ -8,8 +8,6 @@ class Main extends CI_Controller {
 		$this->load->model('test_model');
 		$this->load->model('api_model');
 		$this->load->helper('url_helper');	
-		$this->load->library('javascript');	
-		$this->load->library('javascript/jquery');	
 	}
 	public function index($page='home'){
 		$data['view']='test';

@@ -87,6 +87,7 @@ class Test extends CI_Controller {
 		redirect('main/utente_singolo/'.$id_test);
 	}    
 	public function certificato_corso ($id_test="",$id_corsi=""){
+		$this->load->helper('form');
 		$data['title']='Precobias';
 		$data['certificato_url']='/21/6';
 
@@ -109,20 +110,21 @@ class Test extends CI_Controller {
 		echo json_encode($data['data']);
 	}
 	public function certificato_corso_download($id_test='',$id_corsi=''){
+		$this->load->helper('form');
 		$data['test']=$this->api_model->test_singolo($id_test);
 		$data['corso']=$this->api_model->corso_singolo($id_corsi);
 		$this->load->view('components/style_certificato');
 		$this->load->view('pages/certificato_corso_download',$data);
-
-		
-
-
 	}
 	public function dompdf($id_test='',$id_corso=''){
+		$paragrafo=$this->input-> post('paragrafo');
+
+
+
 
 		$dompdf = new Dompdf();
 
-		$html = file_get_contents('http://localhost/test/prova');
+		$html = file_get_contents('http://localhost/test/prova/'.$id_test.'/'.$id_corso.'/'.$paragrafo);
 		// $options = $dompdf->getOptions();
 		// $options->setIsHtml5ParserEnabled(true);
 		// $dompdf->setOptions($options);
@@ -139,10 +141,13 @@ class Test extends CI_Controller {
 		$dompdf->stream('Certificato di '.$id_test.' per il corso '.$id_corso,[0,0]);
 
 	}
-	public function prova(){
-		$data['test']=$this->api_model->test_singolo(21);
-		$data['corso']=$this->api_model->corso_singolo(6);
-		// $this->load->view('components/style_certificato');
+	public function prova($id_test='',$id_corso='',$paragrafo=''){
+		$data['test']=$this->api_model->test_singolo($id_test);
+		$data['corso']=$this->api_model->corso_singolo($id_corso);
+		$data['paragrafo']=$paragrafo;
+
+
+
 		$this->load->view('pages/certificato_corso_download',$data);
 
 	}
