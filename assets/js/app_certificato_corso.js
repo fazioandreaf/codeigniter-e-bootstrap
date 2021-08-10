@@ -24,14 +24,20 @@ function init(){
                 .catch(e=>console.log(e));
             axios.get('/corso/corso_singolo_json?id='+id_corso)
                 .then(r=>{
-					console.log(r)
                     const {titolo,descrizione,id}=r.data[0];
                     this.corso={titolo,descrizione,id} ;
                 })
                 .catch(e=>console.log(e));
+				let urlll=document.location.href.substring(0,document.location.href.length-1);
+				console.log(urlll)
 				
         },
         methods:{
+			dompdf(){
+				axios.post('/test/dompdf?url='+url)
+				.then(r=>console.log(r.data))
+				.catch(r=>console.log(r))
+			},
         }
     })
 };

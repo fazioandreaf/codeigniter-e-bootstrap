@@ -1,4 +1,9 @@
 <?php
+require_once 'dompdf/autoload.inc.php';
+
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Test extends CI_Controller {
 	public function __construct(){
@@ -73,6 +78,7 @@ class Test extends CI_Controller {
 	}    
 	public function certificato_corso ($id_test="",$id_corsi=""){
 		$data['title']='Precobias';
+		$data['certificato_url']='/21/6';
 
 		// $data['test']=$this->db->where('id', $id_test)->get();
 		
@@ -89,5 +95,18 @@ class Test extends CI_Controller {
 	public function test_singolo_json() {
 		$data['data']=$this->api_model->test_singolo($_GET['id']);
 		echo json_encode($data['data']);
+	}
+	public function dompdf($id_test='',$id_corso=''){
+
+		$dompdf = new Dompdf();
+
+		$html = file_get_contents('http://localhost/test/certificato_corso/'.$id_test.''.$id_corso);
+		$options = $dompdf->getOptions();
+		$options->setIsHtml5ParserEnabled(true);
+		$dompdf->setOptions($options);
+		$dompdf->loadHtml($html);
+		$dompdf->render();
+		$dompdf->stream();
+
 	}
 }
