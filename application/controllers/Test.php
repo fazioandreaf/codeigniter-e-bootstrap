@@ -20,7 +20,9 @@ class Test extends CI_Controller {
 		parent::__construct();
 		$this->load->model('test_model');
 		$this->load->model('api_model');
-		$this->load->helper('url_helper');		
+		$this->load->helper('url_helper');	
+		$this->load->helper('form', 'url');
+	
 	}        
     public function test_on_corso($id=""){
         $data['view']='test';
@@ -89,21 +91,18 @@ class Test extends CI_Controller {
 	public function certificato_corso ($id_test="",$id_corsi=""){
 		$this->load->helper('form');
 		$data['title']='Precobias';
-		$data['certificato_url']='/21/6';
+		$data['certificato_url']='/'.$id_test.'/'.$id_corsi;
 
 		$data['test']=$this->api_model->test_singolo($id_test);
 		$data['corso']=$this->api_model->corso_singolo($id_corsi);
 		
-		
         $this->load->view('components/header_1',$data);
 		$this->load->view('components/certificato_corso_script',$data);
-		
 		$this->load->view('components/style_certificato');
 		$this->load->view('components/header_2',$data);
 		$this->load->view('pages/certificato_corso_download',$data);
         $this->load->view('pages/certificato_corso',$data);
         $this->load->view('components/footer');
-
 	}
 	public function test_singolo_json() {
 		$data['data']=$this->api_model->test_singolo($_GET['id']);
@@ -117,28 +116,39 @@ class Test extends CI_Controller {
 		$this->load->view('pages/certificato_corso_download',$data);
 	}
 	public function dompdf($id_test='',$id_corso=''){
+		$this->load->helper('form');
+		$config['upload_path']= './upload/';
+		$config['allowed_types']= 'gif|jpg|pdf';
+		// $config['max_size']= 100;
+		$config['file_name']= $id_test.'-'.$id_corso;
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('pdf')){
+			$error = array('error' => $this->upload->display_errors());
+			$this->load->view('upload_form', $error);
+			}else{
+			$data = array('upload_data' => $this->upload->data());
+			}
 		$paragrafo=$this->input-> post('paragrafo');
 
 
+			$this->load->helper('form');
+		// $dompdf = new Dompdf();
 
+		// $html = file_get_contents('http://localhost/test/prova/'.$id_test.'/'.$id_corso.'/'.$paragrafo);
+		// // $options = $dompdf->getOptions();
+		// // $options->setIsHtml5ParserEnabled(true);
+		// // $dompdf->setOptions($options);
 
-		$dompdf = new Dompdf();
+        // // $dom = new DOMDocument();
+        // // $dom->load('http://localhost/test/certificato_corso/'.$id_test.'/'.$id_corso);
+		// // $dompdf->loadDOM($dom);
 
-		$html = file_get_contents('http://localhost/test/prova/'.$id_test.'/'.$id_corso.'/'.$paragrafo);
-		// $options = $dompdf->getOptions();
-		// $options->setIsHtml5ParserEnabled(true);
-		// $dompdf->setOptions($options);
+		// // echo $html;
+		// $dompdf->loadHtml($html);
+		// $dompdf->setPaper('A4', 'landscape');
+		// $dompdf->render();
 
-        // $dom = new DOMDocument();
-        // $dom->load('http://localhost/test/certificato_corso/'.$id_test.'/'.$id_corso);
-		// $dompdf->loadDOM($dom);
-
-		// echo $html;
-		$dompdf->loadHtml($html);
-		$dompdf->setPaper('A4', 'landscape');
-		$dompdf->render();
-
-		$dompdf->stream('Certificato di '.$id_test.' per il corso '.$id_corso,[0,0]);
+		// $dompdf->stream('Certificato di '.$id_test.' per il corso '.$id_corso,[0,0]);
 
 	}
 	public function prova($id_test='',$id_corso='',$paragrafo=''){

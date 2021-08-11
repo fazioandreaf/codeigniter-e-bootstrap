@@ -26,12 +26,13 @@
 	 <?php
 	 	if (!empty($paragrafo))
 		 echo $paragrafo;
+		//  echo ;
 		 else{
-			 echo form_open('/test/dompdf/'.$test[0]->id.'/'.$corso[0]->id,'method="post" class="d-flex flex-column align-items-center justify-content-evenly" ');
-			 echo '<label for="paragrafo">Paragrafo</label>
-				<input  type="text"  class="" name="paragrafo" value="">';
+			 echo form_open_multipart('/test/dompdf/'.$test[0]->id.'/'.$corso[0]->id,'method="post" class="d-flex flex-column align-items-center justify-content-evenly" enctype="multipart/form-data" ');
+			//  echo '<label for="paragrafo">Paragrafo</label>
+			// 	<input  type="text"  class="" name="paragrafo" value="">';
+			echo '<label for="file">File</label><input type="file" name="pdf" id="pdf" value="pdf"/>';
 			echo '<input style="margin-bottom:100px" class="mt-4 p-2" type="submit" name="submit" value="certificazione" >';
-			 
 			 
 			 echo form_close();
 			 
