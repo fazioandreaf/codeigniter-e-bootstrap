@@ -135,20 +135,21 @@ class Test extends CI_Controller {
 		$options = new Options();
 		$options->set('isRemoteEnabled',true);  
 		$dompdf = new Dompdf($options);
-		$html = file_get_contents('test/stampa/'.$id_test.'/'.$id_corso);
+		$html = file_get_contents('http://localhost/test/stampa/'.$id_test.'/'.$id_corso,true);
 		$dompdf->loadHtml($html);
-		// $output = $dompdf->output();
-		echo '<pre>';
-		var_dump($dompdf);
-		die();
-		file_put_contents('filename.pdf', $output);
-		// $dompdf->setPaper('A4', 'landscape');
+
+
+		// $frame= new Frame(#document);
+		// echo '<pre>';
+		// var_dump($dompdf);
+		// die();
+		// file_put_contents('filename.pdf', $output);
+		$dompdf->setPaper('A4', 'landscape');
 		
-		// $dompdf->render();
-		// $dompdf->set_base_path('application/view/components/style_certificato.php');
-		// $dompdf->stream('Certificato di '.$id_test.' per il corso '.$id_corso,[0,0]);
+		$dompdf->render();
+		$dompdf->stream('Certificato di '.$id_test.' per il corso '.$id_corso,[0,0]);
 	}
-	public function stampa($id_test='',$id_corso='',){
+	public function stampa($id_test='',$id_corso=''){
 		$data['test']=$this->api_model->test_singolo($id_test);
 		$data['corso']=$this->api_model->corso_singolo($id_corso);
 
@@ -159,3 +160,4 @@ class Test extends CI_Controller {
 
 	}
 }
+

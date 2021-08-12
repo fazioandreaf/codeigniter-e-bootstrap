@@ -23,12 +23,15 @@
                 <tr> <th>Funzioni</th><th>Titolo</th><th>Descrizione</th></tr>
                 <tr v-for="elem in corsi" class=" py-2">
                     <td class="text-center">
-                        <a :href="'/test/delete_corsi_on_test/'+utente.id_test+'/'+elem.id_corsi" style="color:var(--bs-danger)" class="me-2"> 
+                        <a :href="'/test/delete_corsi_on_test/'+utente.id+'/'+elem.id_corsi" style="color:var(--bs-danger)" class="me-2"> 
                             
 							<i class="fas fa-trash"></i>
                         </a>
-						<a :href="'/test/certificato_corso/'+utente.id_test+'/'+elem.id_corsi">
+						<a :href="'/test/certificato_corso/'+utente.id+'/'+elem.id_corsi">
 						<i class="fas fa-file"></i>
+						</a>
+						<a :href="'/test/certificato_corso_wk/'+utente.id+'/'+elem.id_corsi" style="color:purple">
+							<i class="fas fa-file"></i>
 						</a>
                         <!-- </a> -->
                     </td>
@@ -38,7 +41,7 @@
 
             <h2>Esperienze lavorative
                 </h2>
-            <a :href="'/job/add/'+utente.id_test">
+            <a :href="'/job/add/'+utente.id">
                 <button type="button" style="border:none" class="btn btn-primary exp">
                     Inserimento esperienze
                 </button>
@@ -47,8 +50,8 @@
                 <tr> <th>Funzioni</th><th>Esperienza</th><th>Descrizione</th></tr>
                 <tr v-for="elem in esperienze" class=" py-2">
                     <td class="text-center">
-                    <a :href="'/job/add/'+utente.id_test+'/'+elem.id" style="color:var(--bs-info)"><i class="fas fa-edit"></i></a>
-                        <a href="/job/delete/'.$i->id_test.'/'.$i->id.'" style="color:var(--bs-danger)" class="me-2">  <i class="fas fa-trash"></i></a>
+                    <a :href="'/job/add/'+utente.id+'/'+elem.id" style="color:var(--bs-info)"><i class="fas fa-edit"></i></a>
+                        <a href="/job/delete/'.$i->id.'/'.$i->id.'" style="color:var(--bs-danger)" class="me-2">  <i class="fas fa-trash"></i></a>
                         </td>
                     <td>{{elem.job_title}} </td>
                     <td>{{elem.job_description}}</td></tr>
@@ -62,16 +65,16 @@
                     // if(!empty($get_exp[0]->job_title)){
                     //     foreach($get_exp as $i){
                     //         echo '<div class="row py-2 utente_singolo" >';
-                    //         echo '<div class="col-4 text-center"><a href="/job/add/'.$i->id_test.'/'.$i->id.'" style="color:var(--bs-info)"><i class="fas fa-edit"></i></a>';
-                    //         echo '<a href="/job/delete/'.$i->id_test.'/'.$i->id.'" style="color:var(--bs-danger)" class="me-2">  <i class="fas fa-trash"></i></a></div>';
+                    //         echo '<div class="col-4 text-center"><a href="/job/add/'.$i->id.'/'.$i->id.'" style="color:var(--bs-info)"><i class="fas fa-edit"></i></a>';
+                    //         echo '<a href="/job/delete/'.$i->id.'/'.$i->id.'" style="color:var(--bs-danger)" class="me-2">  <i class="fas fa-trash"></i></a></div>';
                     //         echo '<div class="col-8">'.$i->job_title.'</div>';
                     //         echo '</div>';
                     //     }                                
                     // }      
                     // if(!empty($get_exp[0]->job_title)){
                     //     foreach($get_exp as $i){
-                    //         echo '<li><a href="/job/add/'.$i->id_test.'/'.$i->id.'" style="color:var(--bs-info)"><i class="fas fa-edit"></i></a>';
-                    //         echo '<a href="/job/delete/'.$i->id_test.'/'.$i->id.'" style="color:var(--bs-danger)" class="me-2">  <i class="fas fa-trash"></i></a>'.($i->job_title).'</li>';
+                    //         echo '<li><a href="/job/add/'.$i->id.'/'.$i->id.'" style="color:var(--bs-info)"><i class="fas fa-edit"></i></a>';
+                    //         echo '<a href="/job/delete/'.$i->id.'/'.$i->id.'" style="color:var(--bs-danger)" class="me-2">  <i class="fas fa-trash"></i></a>'.($i->job_title).'</li>';
                     //     }
                     // }else{
                     //     echo '<li> Non hai ancora nessuna esperienza lavorativa</li>';

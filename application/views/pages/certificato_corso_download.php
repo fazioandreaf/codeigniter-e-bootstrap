@@ -1,11 +1,10 @@
-	<div class="certificato" style="page-break-after: always; text-align:center">
+	<div class="certificato" style="page-break-after: always; text-align:center;background:red;">
 			<h4>Certificato del corso</h4>
 			<h1><?php  echo strtoupper($corso[0]->titolo[0]).substr($corso[0]->titolo,1)?></h1>
 			<p><?php  echo $corso[0]->descrizione?></p>
 		<div>
 				<h2>Utente iscritto al corso</h2>
 				<div class="utente">
-
 					<span>
 						<h3>Nome</h3>
 						<?php  echo $test[0]->nome?></span>
@@ -39,7 +38,7 @@
 						echo form_close();
 				}
 			}else
-				echo '<img src="'. $_SERVE'/upload/prova.png" alt="ola" style="width:100px;height:100px">';
+				echo '<img src="'.$filename.'" alt="ola" style="width:100px;height:100px">';
 				// echo $filename;
 				//  echo '<div>
 				//  	<object data="'.$filename.'" type="application/pdf" width="300" height="200">
@@ -48,5 +47,5 @@
 				//  </div>';
 				//  echo '<iframe src="'.$filename.'" width="50%" style="height:400px;margin-top:1re,"></iframe>';
 		?>
-		<img src="C:\xampp\htdocs\upload\prova.png" alt="ciaoooo" style="width:100px;height:100px">
+		<img src="/upload/prova.png" alt="ciaoooo" style="width:100px;height:100px">
 	</div>

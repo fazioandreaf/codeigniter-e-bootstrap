@@ -7,8 +7,8 @@
         if(!empty($get))
             echo form_open('form/edit/'.$get[0]->id.'','method="post" class="d-flex flex-column align-items-center justify-content-evenly '); 
             else
-                echo form_open('#:void(0);'
-                    // 'form/create'
+                echo form_open(
+                    'form/create'
                     ,'class="d-flex flex-column align-items-center justify-content-evenly " style="min-height:400px"'); 
     ?>
     <div class="form-floating mt-3 position-relative">   

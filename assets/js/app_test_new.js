@@ -7,6 +7,8 @@ function init(){
             cognome:'', 
             genere:'',
             eta:0,
+			test_corso_toggle:true,
+			switch_test_corso:true,
         
         },
         computed:{
@@ -19,7 +21,7 @@ function init(){
         },
         methods:{
             post:function(){
-                console.log('ciaooo')
+                axios.post('')
             }
         }
     })

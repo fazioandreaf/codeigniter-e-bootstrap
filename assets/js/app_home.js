@@ -13,7 +13,6 @@ function init(){
         el:"#app",
         data:{
             colore:'test',
-            colore:'test',
             utenti:[],
             corsi:[],
             id:0,

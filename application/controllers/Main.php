@@ -33,6 +33,7 @@ class Main extends CI_Controller {
 		$data['title'] = '';
 		$this->load->view('components/header_1',$data);
 		$this->load->view('components/test_new_script');
+
 		$this->load->view('components/header_2',$data);
 		$this->load->view('pages/form');
 		$this->load->view('components/footer');
@@ -72,6 +73,10 @@ class Main extends CI_Controller {
 		$this->load->view('components/header_2',$data);
 		$this->load->view('pages/utente_singolo');
 		$this->load->view('components/footer');		
+	}
+	public function utente_singolo_json(){
+		$data['data']=$this->api_model->test_singolo($_GET['id']);
+		echo json_encode($data['data']);		
 	}
 	public function utente_singolo_corsi_json(){
 		$data['data']=$this->api_model->utente_singolo_corsi_api($_GET['id']);

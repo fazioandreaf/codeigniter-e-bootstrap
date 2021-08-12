@@ -8,7 +8,6 @@ function init(){
             esperienze:[],
 			test_corso_toggle:true,
 			switch_test_corso :true,
-        
         },
         mounted(){
             let url=window.location.pathname;
