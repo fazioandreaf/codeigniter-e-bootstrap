@@ -48,28 +48,23 @@
 	<div class="form" >
 	 <?php
 			// $filename='/upload/'.$test[0]->id.'-'.$corso[0]->id.'.pdf';
-			$filename='/upload/prova.png';
+			$filename='/upload/'.$test[0]->id.'-'.$corso[0]->id.'.pdf';
 			//  echo $filename;
 				// header("Content-Length: " . filesize($filename));
 
-			if(!file_exists('.'.$filename)){
-				if (!empty($paragrafo))
-					echo $paragrafo;
-					else{
-						echo form_open_multipart('/test/appendpdf/'.$test[0]->id.'/'.$corso[0]->id,'method="post" enctype="multipart/form-data" ');
-						echo '<label for="file">File</label><input type="file" name="pdf" id="pdf" value="pdf"/>';
-						echo '<input style="margin-bottom:1rem" class="mt-4 p-2" type="submit" name="submit" value="Append pdf" >';			 
-						echo form_close();
-				}
-			}else
-				echo '<img src="'.$filename.'" alt="ola" style="width:100px;height:100px">';
-				// echo $filename;
-				//  echo '<div>
-				//  	<object data="'.$filename.'" type="application/pdf" width="300" height="200">
-				//  	<a href="'.$filename.'">test.pdf</a>
-				//  	</object>
-				//  </div>';
-				//  echo '<iframe src="'.$filename.'" width="50%" style="height:400px;margin-top:1re,"></iframe>';
+			if(!$stampa){
+
+				if(!file_exists('.'.$filename)){
+					if (!empty($paragrafo) && $stampa)
+						echo $paragrafo;
+						else{
+							echo form_open_multipart('/test/appendpdf/'.$test[0]->id.'/'.$corso[0]->id,'method="post" enctype="multipart/form-data" ');
+							echo '<label for="file">File</label><input type="file" name="pdf" id="pdf" value="pdf"/>';
+							echo '<input style="margin-bottom:1rem" class="mt-4 p-2" type="submit" name="submit" value="Append pdf" >';			 
+							echo form_close();
+					}
+				}else
+					echo '<strong>Hai inserito giá un pdf</strong>: '.$filename;
+			}
 		?>
-		<img src="/upload/prova.png" alt="ciaoooo" style="width:100px;height:100px">
 	</div>

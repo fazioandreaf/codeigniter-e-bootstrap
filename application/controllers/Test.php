@@ -128,7 +128,7 @@ class Test extends CI_Controller {
 			$data = array('upload_data' => $this->upload->data());
 			}
 		$paragrafo=$this->input-> post('paragrafo');
-		        redirect('/test/certificato_corso/'.$id_test.'/'.$id_corso);
+		        redirect('/test/certificato_corso_mpdf/'.$id_test.'/'.$id_corso);
 
 
 	}
@@ -165,6 +165,7 @@ class Test extends CI_Controller {
 		$data['test']=$this->api_model->test_singolo($id_test);
 		$data['corso']=$this->api_model->corso_singolo($id_corsi);
 		
+		$data['stampa']=false;
         $this->load->view('components/header_1',$data);
 		$this->load->view('components/certificato_corso_mpdf_script',$data);
 		$this->load->view('components/style_certificato',$data);
@@ -197,6 +198,10 @@ class Test extends CI_Controller {
 		$data['test']=$this->api_model->test_singolo($id_test);
 		$data['corso']=$this->api_model->corso_singolo($id_corso);
 		$data['titolo']=$data['test'][0]->nome.' '.$data['test'][0]->cognome.' - Certificato del corso: '.$data['corso'][0]->titolo;
+		if(file_exists('upload/'.$data['test'][0]->id.'-'.$data['corso'][0]->id.'.pdf'))
+			$data['stampa']=true;
+			else
+				$data['stampa']=false;
 		$this->load->view('components/header_mpdf',$data);
 		$this->load->view('components/style_certificato',$data);
 		$this->load->view('pages/certificato_corso_download',$data);
