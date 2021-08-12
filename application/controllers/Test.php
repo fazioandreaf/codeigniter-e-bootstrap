@@ -1,18 +1,16 @@
 <?php
 require_once 'dompdf/autoload.inc.php';
 
+// use DOMNode;
 use Dompdf\Css\Style;
 use Dompdf\Frame\FrameList;
+use Dompdf\FrameDecorator\Image;
 
 
 use Dompdf\Dompdf;
+use Dompdf\Frame;
 use Dompdf\Options;
-// use Dompdf\JavascriptEmbedder;
-// use Dompdf\Sabberworm;
-// use Dompdf\Sabberworm;
-// use Dompdf\Sabberworm;
-// use Dompdf\Sabberworm;
-// use Dompdf\Sabberworm;
+use Dompdf\Css\Stylesheet;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Test extends CI_Controller {
@@ -115,11 +113,11 @@ class Test extends CI_Controller {
 		$this->load->view('components/style_certificato');
 		$this->load->view('pages/certificato_corso_download',$data);
 	}
-	public function dompdf($id_test='',$id_corso=''){
+	public function appendpdf($id_test='',$id_corso=''){
 		$this->load->helper('form');
 		$config['upload_path']= './upload/';
 		$config['allowed_types']= 'gif|jpg|pdf';
-		// $config['max_size']= 100;
+		$config['overwrite']=true;
 		$config['file_name']= $id_test.'-'.$id_corso;
 		$this->load->library('upload', $config);
 		if ( ! $this->upload->do_upload('pdf')){
@@ -129,35 +127,34 @@ class Test extends CI_Controller {
 			$data = array('upload_data' => $this->upload->data());
 			}
 		$paragrafo=$this->input-> post('paragrafo');
+		        redirect('/test/certificato_corso/'.$id_test.'/'.$id_corso);
 
-
-			$this->load->helper('form');
-		// $dompdf = new Dompdf();
-
-		// $html = file_get_contents('http://localhost/test/prova/'.$id_test.'/'.$id_corso.'/'.$paragrafo);
-		// // $options = $dompdf->getOptions();
-		// // $options->setIsHtml5ParserEnabled(true);
-		// // $dompdf->setOptions($options);
-
-        // // $dom = new DOMDocument();
-        // // $dom->load('http://localhost/test/certificato_corso/'.$id_test.'/'.$id_corso);
-		// // $dompdf->loadDOM($dom);
-
-		// // echo $html;
-		// $dompdf->loadHtml($html);
-		// $dompdf->setPaper('A4', 'landscape');
-		// $dompdf->render();
-
-		// $dompdf->stream('Certificato di '.$id_test.' per il corso '.$id_corso,[0,0]);
 
 	}
-	public function prova($id_test='',$id_corso='',$paragrafo=''){
+	public function dompdf($id_test='',$id_corso=''){
+		$options = new Options();
+		$options->set('isRemoteEnabled',true);  
+		$dompdf = new Dompdf($options);
+		$html = file_get_contents('test/stampa/'.$id_test.'/'.$id_corso);
+		$dompdf->loadHtml($html);
+		// $output = $dompdf->output();
+		echo '<pre>';
+		var_dump($dompdf);
+		die();
+		file_put_contents('filename.pdf', $output);
+		// $dompdf->setPaper('A4', 'landscape');
+		
+		// $dompdf->render();
+		// $dompdf->set_base_path('application/view/components/style_certificato.php');
+		// $dompdf->stream('Certificato di '.$id_test.' per il corso '.$id_corso,[0,0]);
+	}
+	public function stampa($id_test='',$id_corso='',){
 		$data['test']=$this->api_model->test_singolo($id_test);
 		$data['corso']=$this->api_model->corso_singolo($id_corso);
-		$data['paragrafo']=$paragrafo;
 
 
 
+		// $this->load->view('components/style_certificato',$data);
 		$this->load->view('pages/certificato_corso_download',$data);
 
 	}

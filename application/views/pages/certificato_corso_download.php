@@ -22,25 +22,31 @@
 		</div>
 	</div>
 
-	<div class="form">
+	<div class="form" style="display:flex; flex-direction:column; align-items:center; justify-content:space-evenly">
 	 <?php
-	 	if (!empty($paragrafo))
-		 echo $paragrafo;
-		//  echo ;
-		 else{
-			 echo form_open_multipart('/test/dompdf/'.$test[0]->id.'/'.$corso[0]->id,'method="post" class="d-flex flex-column align-items-center justify-content-evenly" enctype="multipart/form-data" ');
-			//  echo '<label for="paragrafo">Paragrafo</label>
-			// 	<input  type="text"  class="" name="paragrafo" value="">';
-			echo '<label for="file">File</label><input type="file" name="pdf" id="pdf" value="pdf"/>';
-			echo '<input style="margin-bottom:100px" class="mt-4 p-2" type="submit" name="submit" value="certificazione" >';
-			 
-			 echo form_close();
-			 
-			}
-			 ?>
-		
-				
-		
-		
+			// $filename='/upload/'.$test[0]->id.'-'.$corso[0]->id.'.pdf';
+			$filename='/upload/prova.png';
+			//  echo $filename;
+				// header("Content-Length: " . filesize($filename));
 
+			if(!file_exists('.'.$filename)){
+				if (!empty($paragrafo))
+					echo $paragrafo;
+					else{
+						echo form_open_multipart('/test/appendpdf/'.$test[0]->id.'/'.$corso[0]->id,'method="post" class="d-flex flex-column align-items-center justify-content-evenly" enctype="multipart/form-data" ');
+						echo '<label for="file">File</label><input type="file" name="pdf" id="pdf" value="pdf"/>';
+						echo '<input style="margin-bottom:1rem" class="mt-4 p-2" type="submit" name="submit" value="Append pdf" >';			 
+						echo form_close();
+				}
+			}else
+				echo '<img src="'. $_SERVE'/upload/prova.png" alt="ola" style="width:100px;height:100px">';
+				// echo $filename;
+				//  echo '<div>
+				//  	<object data="'.$filename.'" type="application/pdf" width="300" height="200">
+				//  	<a href="'.$filename.'">test.pdf</a>
+				//  	</object>
+				//  </div>';
+				//  echo '<iframe src="'.$filename.'" width="50%" style="height:400px;margin-top:1re,"></iframe>';
+		?>
+		<img src="C:\xampp\htdocs\upload\prova.png" alt="ciaoooo" style="width:100px;height:100px">
 	</div>
