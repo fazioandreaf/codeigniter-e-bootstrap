@@ -7,6 +7,8 @@ function init(){
             corso:{},
             id:0,
             nome:'',
+			test_corso_toggle:false,
+
         },
         mounted(){
             let url=window.location.pathname;

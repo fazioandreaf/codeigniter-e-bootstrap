@@ -15,6 +15,6 @@
 <!--mpdf  $html = ob_get_contents();
 		ob_end_clean();mpdf-->
 
-<a href="/test/certificato_corso_mpdf_download/<?php echo  $test[0]->id.'-'.$corso[0]->id;?> ">
+<a href="/test/certificato_corso_mpdf_download/<?php echo  $test[0]->id.'/'.$corso[0]->id;?> ">
 	<button>download</button>
 </a>

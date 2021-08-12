@@ -53,7 +53,6 @@
 				// header("Content-Length: " . filesize($filename));
 
 			if(!$stampa){
-
 				if(!file_exists('.'.$filename)){
 					if (!empty($paragrafo) && $stampa)
 						echo $paragrafo;
@@ -65,6 +64,8 @@
 					}
 				}else
 					echo '<strong>Hai inserito giá un pdf</strong>: '.$filename;
+			}else{
+				echo 'inserire il file';
 			}
 		?>
 	</div>

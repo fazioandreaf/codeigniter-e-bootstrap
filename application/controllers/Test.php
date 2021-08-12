@@ -176,7 +176,7 @@ class Test extends CI_Controller {
 		$this->load->view('pages/certificato_corso_mpdf',$data);
         $this->load->view('components/footer');
 	}
-	public function certificato_corso_mpdf_download(){
+	public function certificato_corso_mpdf_download($id_test='',$id_corso=''){
 		$option=['orientation' => 'L'];
 			// $header='
 			// 	<!DOCTYPE html>
@@ -187,10 +187,18 @@ class Test extends CI_Controller {
 			// 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			// 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 			// 		<link rel="shortcut icon" href="https://thumbs.dreamstime.com/b/yin-yang-symbol-vector-icon-harmony-balance-yinyang-sign-isolated-transparent-background-eps-186322218.jpg" type="image/x-icon"> ';
-		$html =file_get_contents('http://localhost/test/stampa_mpdf/1/1').'</body></html>';
-		
+
+		$file='./upload/'.$id_test.'-'.$id_corso.'.pdf';
+		$html =file_get_contents('http://localhost/test/stampa_mpdf/'.$id_test.'/'.$id_corso).'</body></html>';
 		$mpdf = new \Mpdf\Mpdf($option);
 		$mpdf->WriteHTML($html);
+		$mpdf->WriteHTML('<pagebreak />');
+		$pagecount = $mpdf->SetSourceFile($file);		
+		for($i=1;$i<=$pagecount;$i++){
+			$tplId = $mpdf->importPage($i);
+			$mpdf->UseTemplate($tplId);
+			$mpdf->WriteHTML('<pagebreak />');
+		}
 		$mpdf->Output();
 
 	}

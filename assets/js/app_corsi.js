@@ -5,12 +5,13 @@ function init(){
             colore:'test',
             corsi:[],
             id:0,
+			test_corso_toggle:false,
             nome:'',
         },
         mounted(){
             axios.post('/main/corsi_json')
             .then(r=>{
-                this.corsi=r.data.sort(order_a_b);
+                this.corsi=r.data.sort(this.order_a_b);
             })
             .catch(e=>console.log(e))    
         },
