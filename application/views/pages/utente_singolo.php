@@ -30,7 +30,7 @@
 						<a :href="'/test/certificato_corso/'+utente.id+'/'+elem.id_corsi">
 						<i class="fas fa-file"></i>
 						</a>
-						<a :href="'/test/certificato_corso_wk/'+utente.id+'/'+elem.id_corsi" style="color:purple">
+						<a :href="'/test/certificato_corso_mpdf/'+utente.id+'/'+elem.id_corsi" style="color:purple">
 							<i class="fas fa-file"></i>
 						</a>
                         <!-- </a> -->
